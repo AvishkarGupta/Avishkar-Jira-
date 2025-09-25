@@ -1,0 +1,97 @@
+*{
+  font-family: 'Times New Roman', Times, serif
+
+
+
+  
+}
+@import "tailwindcss";
+
+#main::-webkit-scrollbar, #tasklist::-webkit-scrollbar, #newsletter::-webkit-scrollbar, #taskResources::-webkit-scrollbar, #taskDiv::-webkit-scrollbar, #taskTitle::-webkit-scrollbar{
+  display: none;
+  
+}
+
+#empdashboard::-webkit-scrollbar, #taskDescription::-webkit-scrollbar, #myColleague::-webkit-scrollbar, #task::-webkit-scrollbar{
+  display: none;
+  
+}
+
+#loginDiv{
+  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.5);
+}
+
+#loginDiv > form > button{
+  box-shadow: 3px 3px 7px rgba(4, 35, 238, 0.5);
+}
+
+#CreateNewtask{
+  border: 0.2px solid rgba(82, 48, 48, 0.122);
+  border-radius: 10px 0px ;
+  box-shadow: 7px 7px 7px rgba(90, 60, 33, 0.5);
+}
+
+#CreateNewtask > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-around;
+  margin: 1.6rem 3rem;
+}
+
+#CreateNewtask > div > input{
+  border-bottom: 2px solid rgb(155, 160, 158);
+  outline: none;
+  margin-top: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+#CreateNewtask > div > label{
+  font-size: large;
+  font-weight: 550;
+  letter-spacing: 0.03rem;
+}
+#CreateNewtask > div > label > span{
+  color: red;
+}
+
+#CreateNewUser{
+  border: 0.2px solid rgba(82, 48, 48, 0.122);
+  border-radius: 10px 0px ;
+  box-shadow: 7px 7px 7px rgba(50, 60, 174, 0.5);
+}
+
+#CreateNewUser > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-around;
+  margin: 3rem 3rem;
+}
+
+#myProfile{
+  box-shadow: 7px 7px 7px rgba(20, 167, 193, 0.288);
+  background-color: rgba(59, 198, 222, 0.095);
+  border: 0.1px solid rgba(14, 14, 146, 0.264);
+  border-radius: 10px;
+
+}
+#teamProfile{
+  box-shadow: 7px 7px 7px #603f8b;
+  background-color: #f580dd;
+  border: 0.1px solid rgba(7, 7, 8, 0.264);
+  border-radius: 10px;
+
+}
+
+#task{
+  box-shadow: 7px 7px 7px rgba(20, 167, 193, 0.288);
+  background-color: rgba(59, 73, 222, 0.095);
+  border: 0.1px solid rgba(14, 14, 146, 0.264);
+
+}
+#seprateTask{
+  box-shadow: 7px 7px 7px rgba(6, 176, 243, 0.364);
+  background-color: rgba(18, 6, 243, 0.336);
+  border: 0.1px solid rgba(14, 14, 146, 0.264);
+}
