@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import {Footer, Header} from "../Index.js"
+import {Footer, Header, Sidebar} from "../Index.js"
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -98,166 +98,173 @@ const CreateNewUser = ( ) => {
     
   }
   
-  return <>
-  <Header/>
-  <div className="relative top-17 rounded py-2 px-10 flex flex-col mb-[2rem]">
-    <Link to={"/home"} className="relative  top-[2rem] flex"><IoIosArrowBack /> <span className="relative bottom-1">Back to home</span></Link>
-    <h2 className="m-auto font-bold text-3xl text-[rgb(48,27,241)] p-3 mb-3">Set up New colleague Account</h2>
-    <div className={`text-red-600 font-bold mb-2`}>{error}</div>
-    <div className={`text-green-600 font-bold mb-2`}>{created}</div>
-    <form id="CreateNewUser" onSubmit={handlecreateUser} className="m-auto w-[100%] flex justify-center">
-      <div className="w-[80%] flex flex-col items-center">
-          <div className="flex w-full justify-around">
-          <div className="pb-5 flex flex-col">
-            <label htmlFor="Name" className="pb-1 font-semibold">Full Name</label>
-            <input
-              ref={NameValue} 
-              className="border-b-1 border-gray-200 w-[20vw] rounded outline-none px-2 p-0.4 placeholder-blue-300 " 
-              type="text" 
-              name="Name"
-              placeholder="Bob Stark" 
-              id="Name"
-              required
-            />
-          </div>
-          <div className="pb-5 flex flex-col ">
-            <label htmlFor="empId" className="pb-1 font-semibold">EMP ID</label>
-            <input
-              ref={empIdValue} 
-              className="border-b-1 border-gray-200 w-[20vw] rounded outline-none px-2 p-0.4 placeholder-blue-300 " 
-              type="text" 
-              name="empId" 
-              placeholder="####" 
-              id="empId"
-              required
-            />
-          </div>
-          </div>
-          <div className="flex w-full justify-around">
-          <div className="pb-5 flex flex-col ">
-            <label htmlFor="firstName" className="pb-1 font-semibold">First Name</label>
-            <input
-              ref={firstNameValue} 
-              className="border-b-1 border-gray-200 w-[20vw] rounded outline-none px-2 p-0.4 placeholder-blue-300 " 
-              type="text"  
-              name="firstName"
-              placeholder="Bob "
-              id="firstName"
-              required
-            />
-          </div>
-          <div className="pb-5 flex flex-col ">
-            <label htmlFor="lastName" className="pb-1 font-semibold">Last Name</label>
-            <input
-              ref={lastNameValue} 
-              className="border-b-1 border-gray-200 w-[20vw] rounded outline-none px-2 p-0.4 placeholder-blue-300" 
-              type="text"  
-              name="lastName"
-              placeholder="Stark"
-              id="lastName"
-              required
-            />
-          </div>
-          </div>
-          <div className="flex w-full justify-around">
-          <div className="pb-5 flex flex-col ">
-            <label htmlFor="email" className="pb-1 font-semibold">E-mail (Organization Domain) </label>
-            <input
-              ref={emailValue} 
-              className="border-b-1 border-gray-200 w-[20vw] rounded outline-none px-2 p-0.4 placeholder-blue-300 " 
-              type="email" 
-              name="email" 
-              placeholder="example@gmail.com" 
-              id="email"
-              autoComplete="email"
-              required
-            />
-          </div>
-          <div className="pb-5 flex flex-col ">
-            <label htmlFor="password" className="pb-1 font-semibold">Password</label>
-            <input
-              ref={passwordValue} 
-              className="border-b-1 border-gray-200 w-[20vw] rounded outline-none px-2 p-0.4 placeholder-blue-300 " 
-              type="password" 
-              name="password" 
-              placeholder="****" 
-              id="password"
-              autoComplete="current-password"
-              required
-            />
-          </div>
-          </div>
-          <div className="flex w-full justify-around">
-          <div className="pb-5 flex flex-col ">
-            <label htmlFor="role" className="pb-1 font-semibold">Role </label>
-            <input
-              ref={roleValue} 
-              className="border-b-1 border-gray-200 w-[20vw] rounded outline-none px-2 p-0.4 placeholder-blue-300 " 
-              type="text" 
-              name="role" 
-              placeholder="Intern" 
-              id="role"
-              required
-            />
-          </div>
-          <div className="pb-5 flex flex-col ">
-            <label htmlFor="reportesTo" className="pb-1 font-semibold">Reportes To</label>
-            <input
-              ref={reportesToValue} 
-              className="border-b-1 border-gray-200 w-[20vw] rounded outline-none px-2 p-0.4 placeholder-blue-300 " 
-              type="text" 
-              name="reportesTo" 
-              placeholder="Eve Pots" 
-              id="reportesTo"
-              required
-            />
-          </div>
-          </div>
-          <div className="flex w-full justify-around">
-          <div className="pb-5 flex flex-col ">
-            <label htmlFor="DOB" className="pb-1 font-semibold">Date of Birth</label>
-            <input
-              ref={dateOfBirthValue} 
-              className="border-b-1 border-gray-200 w-[20vw] rounded outline-none px-2 p-0.4 placeholder-blue-300 " 
-              type="date" 
-              name="DOB" 
-              placeholder="DOB"
-              id="DOB"
-              required
-            />
-          </div>
-          <div className="pb-5  flex flex-col ">
-            <label htmlFor="DOJ" className="pb-1 font-semibold">Date of Joining</label>
-            <input
-              ref={dateOfJoiningValue} 
-              className="border-b-1 border-gray-200 w-[20vw] rounded outline-none px-2 p-0.4 placeholder-blue-300 " 
-              type="date" 
-              name="DOJ"
-              placeholder="DOJ"
-              id="DOJ"
-              required
-            />
-          </div>
-          </div>
-          <div className="flex flex-col ">
-            <label htmlFor="avatar" className="pb-1 font-semibold">Profile Avatar</label>
-            <input 
-              ref={avatarValue}
-              className="border-b-1 border-gray-200 w-[20vw] rounded outline-none px-2 p-0.4 placeholder-blue-300 " 
-              name="avatar" 
-              type="file" 
-              placeholder="Avatar"
-              id="avatar" 
-              required
-            />
-          </div>
-          <button className="font-semibold mt-4 py-2 px-10 self-center w-[15vw] rounded bg-blue-400 shadow-blue-300 shadow-lg">Create Account</button>
-        </div>
-      </form>
-  </div>
+  const goBack = () =>{
+    navigate(-1)
+  }
 
-    <Footer/>
-  </>
+
+  return <div>
+  <Header/>
+  <div className="flex">
+    <Sidebar/>
+    <div className="mt-17 rounded flex flex-col mb-[2rem] w-full">
+      <Link onClick={goBack} className="relative left-[0rem] top-[1rem] flex"><IoIosArrowBack /> <span className="relative bottom-1">Back</span></Link>
+      <h2 className="mx-auto font-bold text-3xl text-[rgb(48,27,241)] p-3 mb-3">Set up New colleague Account</h2>
+      <div className={`text-red-600 font-bold mb-2`}>{error}</div>
+      <div className={`text-green-600 font-bold mb-2`}>{created}</div>
+      <form id="CreateNewUser" onSubmit={handlecreateUser} className="rounded mx-auto flex justify-center">
+        <div className="flex flex-col items-center">
+            <div className="flex w-full justify-around gap-20">
+            <div className="pb-5 flex flex-col">
+              <label htmlFor="Name" className="pb-1 font-semibold">Full Name</label>
+              <input
+                ref={NameValue} 
+                className="border-b-1 border-gray-400 w-[20rem] outline-none px-2 p-0.4 placeholder-blue-300 " 
+                type="text" 
+                name="Name"
+                placeholder="Bob Stark" 
+                id="Name"
+                required
+              />
+            </div>
+            <div className="pb-5 flex flex-col ">
+              <label htmlFor="empId" className="pb-1 font-semibold">EMP ID</label>
+              <input
+                ref={empIdValue} 
+                className="border-b-1 border-gray-400 w-[20rem] outline-none px-2 p-0.4 placeholder-blue-300 " 
+                type="text" 
+                name="empId" 
+                placeholder="####" 
+                id="empId"
+                required
+              />
+            </div>
+            </div>
+            <div className="flex w-full justify-around gap-20">
+            <div className="pb-5 flex flex-col ">
+              <label htmlFor="firstName" className="pb-1 font-semibold">First Name</label>
+              <input
+                ref={firstNameValue} 
+                className="border-b-1 border-gray-400 w-[20rem] outline-none px-2 p-0.4 placeholder-blue-300 " 
+                type="text"  
+                name="firstName"
+                placeholder="Bob "
+                id="firstName"
+                required
+              />
+            </div>
+            <div className="pb-5 flex flex-col ">
+              <label htmlFor="lastName" className="pb-1 font-semibold">Last Name</label>
+              <input
+                ref={lastNameValue} 
+                className="border-b-1 border-gray-400 w-[20rem] outline-none px-2 p-0.4 placeholder-blue-300" 
+                type="text"  
+                name="lastName"
+                placeholder="Stark"
+                id="lastName"
+                required
+              />
+            </div>
+            </div>
+            <div className="flex w-full justify-around gap-20">
+            <div className="pb-5 flex flex-col ">
+              <label htmlFor="email" className="pb-1 font-semibold">E-mail (Organization Domain) </label>
+              <input
+                ref={emailValue} 
+                className="border-b-1 border-gray-400 w-[20rem] outline-none px-2 p-0.4 placeholder-blue-300 " 
+                type="email" 
+                name="email" 
+                placeholder="example@gmail.com" 
+                id="email"
+                autoComplete="email"
+                required
+              />
+            </div>
+            <div className="pb-5 flex flex-col ">
+              <label htmlFor="password" className="pb-1 font-semibold">Password</label>
+              <input
+                ref={passwordValue} 
+                className="border-b-1 border-gray-400 w-[20rem] outline-none px-2 p-0.4 placeholder-blue-300 " 
+                type="password" 
+                name="password" 
+                placeholder="****" 
+                id="password"
+                autoComplete="current-password"
+                required
+              />
+            </div>
+            </div>
+            <div className="flex w-full justify-around gap-20">
+            <div className="pb-5 flex flex-col ">
+              <label htmlFor="role" className="pb-1 font-semibold">Role </label>
+              <input
+                ref={roleValue} 
+                className="border-b-1 border-gray-400 w-[20rem] outline-none px-2 p-0.4 placeholder-blue-300 " 
+                type="text" 
+                name="role" 
+                placeholder="Intern" 
+                id="role"
+                required
+              />
+            </div>
+            <div className="pb-5 flex flex-col ">
+              <label htmlFor="reportesTo" className="pb-1 font-semibold">Reportes To</label>
+              <input
+                ref={reportesToValue} 
+                className="border-b-1 border-gray-400 w-[20rem] outline-none px-2 p-0.4 placeholder-blue-300 " 
+                type="text" 
+                name="reportesTo" 
+                placeholder="Eve Pots" 
+                id="reportesTo"
+                required
+              />
+            </div>
+            </div>
+            <div className="flex w-full justify-around gap-20">
+            <div className="pb-5 flex flex-col ">
+              <label htmlFor="DOB" className="pb-1 font-semibold">Date of Birth</label>
+              <input
+                ref={dateOfBirthValue} 
+                className="border-b-1 border-gray-400 w-[20rem] outline-none px-2 p-0.4 placeholder-blue-300 " 
+                type="date" 
+                name="DOB" 
+                placeholder="DOB"
+                id="DOB"
+                required
+              />
+            </div>
+            <div className="pb-5  flex flex-col ">
+              <label htmlFor="DOJ" className="pb-1 font-semibold">Date of Joining</label>
+              <input
+                ref={dateOfJoiningValue} 
+                className="border-b-1 border-gray-400 w-[20rem] outline-none px-2 p-0.4 placeholder-blue-300 " 
+                type="date" 
+                name="DOJ"
+                placeholder="DOJ"
+                id="DOJ"
+                required
+              />
+            </div>
+            </div>
+            <div className="flex flex-col ">
+              <label htmlFor="avatar" className="pb-1 font-semibold">Profile Avatar</label>
+              <input 
+                ref={avatarValue}
+                className="border-b-1 border-gray-400 w-[20rem] outline-none px-2 p-0.4 placeholder-blue-300 " 
+                name="avatar" 
+                type="file" 
+                placeholder="Avatar"
+                id="avatar" 
+                required
+              />
+            </div>
+            <button className="font-semibold mt-4 py-2 px-10 self-center w-[15vw] rounded bg-[#0c4160] shadow-blue-300 text-white shadow-lg">Create User</button>
+          </div>
+        </form>
+    </div>
+  </div>
+  <Footer/>
+  </div>
 }
 
 export default CreateNewUser;

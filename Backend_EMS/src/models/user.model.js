@@ -62,10 +62,7 @@ const  UserSchema = new Schema({
   },
   managerName:{
     type: String
-  },
-  // expirence: {
-  //   type: Array
-  // }
+  }
 
 }, {timestamps:true})
 

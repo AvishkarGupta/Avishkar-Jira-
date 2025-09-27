@@ -11,22 +11,22 @@ const Footer = ()=>{
 
   const data = useSelector(state => state.login.refreshToken)
   const titles = [
+    {name: "LinkedIn" , URI: "https://www.linkedin.com/in/gupta-avishkar/", icon:<IoLogoLinkedin />}, 
+    {name: "Git hub" , URI: "https://github.com/AvishkarGupta", icon:<FaGithub />}, 
+    {name: "Twiter" , URI: "", icon:<FaXTwitter />}, 
     {name: "Instagram", URI: "", icon:<FaInstagram />}, 
     {name: "Whatsapp", URI: "", icon:<FaWhatsapp />}, 
-    {name: "Twiter" , URI: "", icon:<FaXTwitter />}, 
-    {name: "Git hub" , URI: "https://github.com/AvishkarGupta", icon:<FaGithub />}, 
-    {name: "LinkedIn" , URI: "https://www.linkedin.com/in/gupta-avishkar/", icon:<IoLogoLinkedin />}, 
   ]
 
   return<>
   {data ? 
-    <div className="flex bg-blue-300 justify-evenly font-medium">
+    <div className="flex bg-[#0c4160] justify-evenly font-medium text-white">
       <div>Co-Powered by: Avishkar!! </div>
       <div>Tech-Sackt: Mongo DB, Express and React</div>
-      <div><Link>Source Code</Link> </div>
+      <div><Link to={"https://github.com/AvishkarGupta/Employee-Management-System-Jira-like-Tool-"}>Source Code</Link> </div>
     </div>
     :
-    <div className="bg-[rgba(240,242,245,0.88)] flex justify-evenly gap-100">
+    <div className="bg-[#0c4160] text-white flex justify-evenly gap-100 py-5">
       <div className="flex gap-5">
         <div className="m-auto text-4xl">
           <CiBarcode />

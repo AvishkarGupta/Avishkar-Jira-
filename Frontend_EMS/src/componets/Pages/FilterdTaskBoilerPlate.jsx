@@ -1,11 +1,7 @@
 import axios from "axios"
-import { useEffect, useRef, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { team } from "../../store/slice/teamSlice"
+import { useState } from "react"
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import { FcDeleteRow } from "react-icons/fc";
-import { CiEdit } from "react-icons/ci"
-import { TfiNewWindow } from "react-icons/tfi";
 
 const FilteredTaskBoilerPlate = ( {data} ) =>{
 
@@ -140,6 +136,7 @@ const FilteredTaskBoilerPlate = ( {data} ) =>{
     
   }
 
+  
   return <>
   {data.length === 0 ? <div className="text-2xl text-red-600 font-semibold mt-[10rem]"> No tasks found that matches the above query.</div> :
   data.map((task)=>{

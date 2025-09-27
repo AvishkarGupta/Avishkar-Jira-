@@ -6,12 +6,13 @@ import {Provider} from "react-redux"
 import { store } from './store/index.js'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router"
 import {Layout, PreviewScreen, Login, ForgetPassword, Home, MyColleague } from "./componets/Index.js"
-import {CreateNewtask, CreateNewUser, MyProfile, AllTasks, AssignedTasks, LifeAt, Careers, About, TasksID, WeAreHiring, KRA, FilterTasks} from "./componets/Pages/index.js"
+import {CreateNewtask, CreateNewUser, MyProfile, AllTasks, AssignedTasks, LifeAt, Careers, About, TasksID, WeAreHiring, KRA, FilterTasks, FilterTasksById} from "./componets/Pages/index.js"
 
 import { PersistGate } from 'redux-persist/integration/react'
 import { persistStore } from 'redux-persist'
 
 let persister = persistStore(store)
+
 
 
 const router = createBrowserRouter(
@@ -30,9 +31,10 @@ const router = createBrowserRouter(
       <Route path='/register-user' element={<CreateNewUser/>} />
       <Route path='/all-tasks' element={<AllTasks/>} />
       <Route path='/filter-tasks' element={<FilterTasks/>} />
+      <Route path='/filter-tasks/:id' element={<FilterTasksById/>} />
       <Route path='/assigned-tasks' element={<AssignedTasks/>} />
       <Route path='/my-colleague' element={<MyColleague/>} />
-      <Route path='/tasks/:id' element={<TasksID id={"avishkar"}/>} />
+      <Route path='/tasks/:id' element={<TasksID/>} />
       <Route path='/we-are-hiring' element={<WeAreHiring/>} />
       <Route path='/my-kra' element={<KRA/>} />
     </Route>

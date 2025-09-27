@@ -9,7 +9,6 @@ import { addfilter, clearState, storeData } from "../../store/slice/filterSlice"
 import { team } from "../../store/slice/teamSlice";
 import FilteredTaskBoilerPlate from "./FilterdTaskBoilerPlate";
 import SaveFilterModel from "./SaveFilterModel";
-import { clearAllSavedFilters } from "../../store/slice/saveFiltersSlice";
 
 const FilterTasks = ( ) => {
 
@@ -17,11 +16,11 @@ const FilterTasks = ( ) => {
   const dispatch = useDispatch()
   const token = useSelector(state => state.login)
   const user = useSelector(state => state.teamProfile)
-  const data = useSelector(state => state.filter)
+  const data = useSelector(state => state.filterQuery)
+  const filter = useSelector(state => state.filterQuery)
   const priority = ["Low", "Medium", "High", "Blocker"]
   const category = ["QA", "Development", "Debugging", "UI and UX"]
   const status = ["New", "To do", "In Progress", "In Verification", "RFV", "Resolved", "Closed", "Re Opened"]
-  const filter = useSelector(state => state.filter)
 
   // filter Logic
   const [filters, setFilters] = useState({
@@ -30,10 +29,13 @@ const FilterTasks = ( ) => {
     priority: "NA",
     category: "NA",
     status: "NA",
+    name: ""
   });
 
   const handleFilter = (e) => {
-    const { name, value } = e.target;
+    console.log(e.target)
+    const { name, value, id, className } = e.target;
+    console.log(name, value, id, className)
      setFilters((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -43,12 +45,14 @@ const FilterTasks = ( ) => {
   }
 
   const handleClear = () => {
+    console.log("Handle clear")
     setFilters({
     owner: "NA",
     assignee: "NA",
     priority: "NA",
     category: "NA",
     status: "NA",
+    name: ""
   })
     dispatch(clearState({
     owner: "NA",
@@ -56,6 +60,7 @@ const FilterTasks = ( ) => {
     priority: "NA",
     category: "NA",
     status: "NA",
+    name: ""
   })) 
   getTasks({
     owner: "NA",
@@ -67,7 +72,6 @@ const FilterTasks = ( ) => {
 }
   // get filterd tasks
   const getTasks = (filterData)=>{
-    console.log(filterData)
 
     axios.post("http://localhost:8000/api/task/filterd-tasks", filterData, {
     headers:{
@@ -99,15 +103,11 @@ const FilterTasks = ( ) => {
   }, [])
 
   const navigate = useNavigate()
+  
   const goBack = () => {
     navigate(-1)
   }
 
-  // delete saved filters
-  const handleDeleteSavedFilters = ( ) => {
-    console.log("Cleared")
-    dispatch(clearAllSavedFilters())
-  }
 
   return<div className="">
     <Header/>
@@ -221,7 +221,6 @@ const FilterTasks = ( ) => {
         </div>
         <div className="flex justify-end m-[1rem]">
           <button onClick={()=>{setShowModel(true)}} className="mx-[1rem] bg-green-400 text-white font-semibold px-2 py-1 rounded-xl text-[0.8rem]">Save Filter</button>
-          <button onClick={()=>{handleDeleteSavedFilters()}} className="mx-[1rem] bg-indigo-400 text-white font-semibold px-2 py-1 rounded-xl text-[0.8rem]">Delete All saved Filters</button>
         </div>
         {showModel && <SaveFilterModel onClose={()=>{setShowModel(false)}} />}
         <div id="taskDiv" className=" flex flex-wrap justify-evenly overflow-y-scroll max-h-[50rem]">

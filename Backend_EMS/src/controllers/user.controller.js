@@ -20,17 +20,7 @@ const generateAccessAndRefreshToken =  async (userId)=>{
 }
 
 const registerUser = asyncHandler(async (req, res) => {
-  //get user data
-  //valid not empty
-  //check if user exist emp id and email
-  // check for image
-  //upload to cloudinary
-  //create user object - create db entry
-  //remove pass and refresh token from res
-  //check for user creation
-  //return response if successfully uer created else error
 
-  // const {email, password} = req.params
   const { Name, empId, firstName, lastName, email, password, dateOfBirth, dateOfJoining, role, reportesTo } = req.body
 
   if ([empId, Name, firstName, lastName, email, password, dateOfBirth, dateOfJoining, role, reportesTo].some((fileds) => fileds?.trim === "")) {
@@ -134,5 +124,50 @@ const getAllProfiles = asyncHandler( async(req, res) => {
   .json(new ApiResponse(200, profiles, "All users profile"))
 } )
 
+const editUserAvatar = asyncHandler( async(req, res) =>{
 
-export { registerUser, loginUser, logoutUser, getAllProfiles };
+  const {_id} = req.user
+  // const {Name} = req.body
+
+  // console.log(_id, Name)
+
+  // if (Name === "") console.log("Name is empty")
+
+  const avatarLocalPath = await req.files?.avatar[0]?.path
+  
+  if (!avatarLocalPath){
+    throw new ApiError(400, "Avatar is required")
+  }
+
+  const avatar = await uploadOnCloudinary(avatarLocalPath)
+
+  console.log(avatar)
+  const user = await User.findByIdAndUpdate(_id, {avatar}, {new:true})
+
+  return res
+  .status(200)
+  .json(new ApiResponse(200, user, "Profile Updated"))
+})
+
+const editUserName = asyncHandler( async( req, res) =>{
+
+  const {_id} = req.user
+  const {name} = req.body
+
+  if (!name){
+    throw new ApiError(400, "New user name is required.")
+  }
+
+  const user = await User.findByIdAndUpdate(_id, {Name: name}, {new:true})
+
+  if (!user){
+    throw new ApiError(500, "Something went wrong while update user data")
+  }
+
+  return res
+  .status(200)
+  .json(new ApiResponse(200, user, "User name updated"))
+})
+
+
+export { registerUser, loginUser, logoutUser, getAllProfiles, editUserAvatar,editUserName };

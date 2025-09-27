@@ -52,9 +52,6 @@ const Careers = () => {
       </div>
     </form>
   </div>
-  <div>
-
-  </div>
   </div>
 }
 

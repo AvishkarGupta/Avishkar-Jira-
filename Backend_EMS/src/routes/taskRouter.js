@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { verifyjwt } from "../middlewares/auth.middelware.js";
-import {createTask, getAllTask, getMyTasks, assignedTasks, updatepriority, updateAssignee, updateOwner, updateStatus, updateCategory, updateTitle, updateDescription, updateResources, getTask, getFilterdTasks} from "../controllers/task.controller.js"
+import {createTask, getAllTask, getMyTasks, assignedTasks, updatepriority, updateAssignee, updateOwner, updateStatus, updateCategory, updateTitle, updateDescription, updateResources, getTask, getFilterdTasks, getFilterdTasksById} from "../controllers/task.controller.js"
 
 const router = Router() 
 
@@ -10,6 +10,7 @@ router.route("/all-tasks").get(verifyjwt, getAllTask)
 router.route("/filterd-tasks").post(verifyjwt, getFilterdTasks)
 router.route("/my-tasks").get(verifyjwt, getMyTasks)
 router.route("/assigned-tasks").get(verifyjwt, assignedTasks)
+router.route("/filterd-tasks-by-id").post(verifyjwt, getFilterdTasksById)
 
 // update tasks
 router.route("/update-priority").post(verifyjwt, updatepriority)

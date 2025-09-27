@@ -13,5 +13,7 @@ import KRA from "./KRA"
 import FilterTasks from "./FilteredTasks";
 import FilteredTaskBoilerPlate from "./FilterdTaskBoilerPlate";
 import SaveFilterModel from "./SaveFilterModel";
+import FilterTasksById from "./FilteredTasksByID";
+import EditProfilePopUpModel from "./EditProfilePopUpModel"
 
-export {CreateNewtask, CreateNewUser, MyProfile, AllTasks, TaskBoilerPlate, AssignedTasks, LifeAt, Careers, About, WeAreHiring, TasksID, KRA, FilterTasks, FilteredTaskBoilerPlate, SaveFilterModel};
+export {CreateNewtask, CreateNewUser, MyProfile, AllTasks, TaskBoilerPlate, AssignedTasks, LifeAt, Careers, About, WeAreHiring, TasksID, KRA, FilterTasks, FilteredTaskBoilerPlate, SaveFilterModel, FilterTasksById, EditProfilePopUpModel};

@@ -1,10 +1,7 @@
-*{
-  font-family: 'Times New Roman', Times, serif
-
-
-
-  
-}
+/* *{
+  /* font-family: 'Times New Roman', Times, serif */
+  /* font-family:"monospace"; */
+/* } */
 @import "tailwindcss";
 
 #main::-webkit-scrollbar, #tasklist::-webkit-scrollbar, #newsletter::-webkit-scrollbar, #taskResources::-webkit-scrollbar, #taskDiv::-webkit-scrollbar, #taskTitle::-webkit-scrollbar{
@@ -26,9 +23,7 @@
 }
 
 #CreateNewtask{
-  border: 0.2px solid rgba(82, 48, 48, 0.122);
-  border-radius: 10px 0px ;
-  box-shadow: 7px 7px 7px rgba(90, 60, 33, 0.5);
+  box-shadow: 7px 7px 7px rgba(148, 196, 227, 0.937);
 }
 
 #CreateNewtask > div{
@@ -56,8 +51,7 @@
 }
 
 #CreateNewUser{
-  border: 0.2px solid rgba(82, 48, 48, 0.122);
-  border-radius: 10px 0px ;
+  border: 1px solid rgba(18, 25, 222, 0.879);
   box-shadow: 7px 7px 7px rgba(50, 60, 174, 0.5);
 }
 
@@ -77,10 +71,11 @@
 
 }
 #teamProfile{
-  box-shadow: 7px 7px 7px #603f8b;
-  background-color: #f580dd;
+  box-shadow: 7px 7px 7px white;
+  background-color: #071330;
   border: 0.1px solid rgba(7, 7, 8, 0.264);
   border-radius: 10px;
+  text-shadow: 3px 3px 4px #120e17;
 
 }
 

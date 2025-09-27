@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import userRouter from "./routes/userRoutes.js"
 import taskRouter from "./routes/taskRouter.js"
 import commentRouter from "./routes/commentRouter.js"
+import filterRouter from "./routes/filterRouter.js"
 
 const app = express()
 
@@ -21,6 +22,7 @@ app.use(cookieParser())
 app.use("/api/users", userRouter)
 app.use("/api/task", taskRouter)
 app.use("/api/comment", commentRouter)
+app.use("/api/filter", filterRouter)
 
 
 export default app;

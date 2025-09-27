@@ -48,7 +48,7 @@ const Header = ()=>{
 
   return <>
     {data.isUserLoggedIn ? 
-    <div className="border-b-2 border-amber-100 bg-white flex p-2.5 top-0 fixed w-[100%] z-10">
+    <div className="border-b-2 border-amber-400 bg-[#0c4160] flex p-2.5 top-0 fixed w-[100%] z-10 text-white">
       <div className="flex ml-[1rem]">
         <img className="w-[3rem]  h-[3rem] rounded-[50%] " src={data.avatar ? data.avatar : "../../assests/Avishkar_passport.jpg"} alt="Emp Avatar" />
         <div className="flex flex-col">
@@ -63,7 +63,7 @@ const Header = ()=>{
           name="search" 
           id="search"
           placeholder="Search"
-          className="bg-[rgba(10,182,245,0.24)] outline-none rounded-2xl py-1.5 px-[1.5rem] placeholder:text-gray-600 placeholder:font-semibold " 
+          className="bg-white outline-none rounded-2xl py-1.5 px-[1.5rem] placeholder:text-gray-600 placeholder:font-semibold " 
         />
       </form>
       </div>  
@@ -75,7 +75,7 @@ const Header = ()=>{
       </div>
     </div> 
     :
-    <div className="border-b-2 border-amber-100  p-4 bg-white flex justify-between gap-2 top-0 fixed w-[100%] z-10">
+    <div className="border-b-2 border-amber-400  p-4 bg-[#0c4160] flex justify-between gap-2 top-0 fixed w-[100%] z-10 text-white">
       <div  className="w-1/6 m-auto pl-[3rem] text-4xl">
         <FaPhoenixFramework />
       </div>

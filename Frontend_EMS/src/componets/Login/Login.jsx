@@ -41,11 +41,11 @@ const Login = ()=>{
   }
 
   return (
-  <div className="flex flex-col justify-center items-center h-screen w-screen">
+  <div className="flex flex-col justify-center bg-[#d8e8fa] items-center h-screen w-screen">
     <div className="flex flex-col justify-center items-center mb-5">
-      <h1 className="text-3xl text-[rgb(80,77,77)] font-bold">Employee Tracking login</h1>
+      <h1 className="text-3xl text-[#071330] font-bold">Employee Tracking login</h1>
     </div>
-    <div id="loginDiv" className="flex flex-col items-center border-2 w-fit border-[rgb(200,196,196)] rounded-xl p-3 pt-30 pb-10">
+    <div id="loginDiv" className="bg-white flex flex-col items-center border-2 w-fit border-[#071330] rounded-xl p-3 pt-30 pb-10">
       <form
       onSubmit={(e)=>(handelform(e))} 
       className="flex flex-col justify-center items-center"
@@ -53,7 +53,7 @@ const Login = ()=>{
         <input id="logininput1" 
         ref={emailVal} 
         required 
-        className="px-10 py-1 border-b-2 border-[rgb(200,196,196)] outline-none placeholder:italic" 
+        className="px-10 py-1 border-b-2 border-[#071330] outline-none placeholder:italic" 
         type="email" 
         autoComplete="email" 
         placeholder="Enter your email"
@@ -62,12 +62,12 @@ const Login = ()=>{
         <input id="logininput2" 
         ref={passwordVal} 
         required 
-        className="m-10 px-10 py-1 border-b-2 border-[rgb(200,196,196)] outline-none placeholder:italic" 
+        className="m-10 px-10 py-1 border-b-2 border-[#071330] outline-none placeholder:italic" 
         type="password" 
         autoComplete="password" 
         placeholder="Enter your password" 
         />
-        <button className="px-10 py-2 border-b-2 border-[rgb(200,196,196)] outline-none bg-blue-500 rounded-4xl font-medium shadow-fuchsia-600 ">Log in</button>
+        <button className="px-10 py-2 border-b-2 border-[#071330] outline-none bg-[#0c4160] text-white rounded-4xl font-medium shadow-fuchsia-600 ">Log in</button>
       </form>
       <p className="text-red-500 font-semibold text-sm mt-2">{error} </p>
       <p id="logintext" className="mt-10 ">Don't have an account yet?</p>

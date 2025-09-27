@@ -3,6 +3,7 @@ import ApiError from "../utils/ApiError.js";
 import ApiResponse from "../utils/ApiResponse.js";
 import {Task} from "../models/task.model.js"
 import {User} from "../models/user.model.js"
+import { SavedFilter } from "../models/savedFilters.model.js";
 
 const createTask = asyncHandler( async(req, res) => {
 
@@ -72,8 +73,6 @@ const getAllTask = asyncHandler( async(req, res) => {
 const getFilterdTasks = asyncHandler( async(req, res) => {
 
   const {owner, assignee, priority, category, status} = req.body
-
-  console.log(owner, assignee, priority, category, status)
 
   const query = {};
   if (owner && owner !== "NA") query.ownerName = owner;
@@ -255,6 +254,31 @@ const updateResources = asyncHandler( async(req, res) => {
   .json(new ApiResponse(200, "Resources Updated"))
 } )
 
+const getFilterdTasksById = asyncHandler( async(req, res) => {
+
+  const {_id} = req.user
+  const {name} = req.body
+
+  const filter = await SavedFilter.find({user: _id, name})
+
+  if (!filter){
+    throw new ApiError(404, "We don't have any filter")
+  }
+
+  const query = {};
+  if (filter[0].owner && filter[0].owner !== "NA") query.ownerName = filter[0].owner;
+  if (filter[0].assignee && filter[0].assignee !== "NA") query.assigneeName = filter[0].assignee;
+  if (filter[0].priority && filter[0].priority !== "NA") query.priority = filter[0].priority;
+  if (filter[0].category && filter[0].category !== "NA") query.category = filter[0].category;
+  if (filter[0].status && filter[0].status !== "NA") query.status = filter[0].status;
+
+  const filterdTasks = await Task.find(query)
+
+  return res
+  .status(200)
+  .json(new ApiResponse(200, filterdTasks, "Task received"))
+
+})
 
 
-export {createTask, getTask, getAllTask, getFilterdTasks, getMyTasks, assignedTasks, updatepriority, updateCategory, updateStatus, updateOwner, updateAssignee, updateTitle, updateDescription, updateResources};
+export {createTask, getTask, getAllTask, getFilterdTasks, getMyTasks, assignedTasks, updatepriority, updateCategory, updateStatus, updateOwner, updateAssignee, updateTitle, updateDescription, updateResources, getFilterdTasksById};

@@ -9,7 +9,6 @@ export const verifyjwt =  asyncHandler( async (req, res, next)=>{
     // const token = req.cookies?.accessToken || req.headers?.authorization?.replace("Bearer ", "");
     // const token1 = req.cookies?.accessToken
     const token1 = req?.headers["authorization"]?.replace("Bearer ", "") || req?.cookies?.accessToken
-
     if (!token1){
       throw new ApiError(402, "Unable to excrate token from headers.")
     }

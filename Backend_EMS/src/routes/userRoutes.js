@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAllProfiles, loginUser, logoutUser, registerUser } from "../controllers/user.controller.js";
+import { editUserAvatar, editUserName, getAllProfiles, loginUser, logoutUser, registerUser } from "../controllers/user.controller.js";
 import {upload} from "../middlewares/multer.middleware.js"
 import { verifyjwt } from "../middlewares/auth.middelware.js";
 
@@ -10,6 +10,8 @@ router.route("/register").post(verifyjwt, upload.fields([{name: "avatar", maxCou
 router.route("/login").post(loginUser)
 router.route("/logout").get(verifyjwt, logoutUser)
 router.route("/all-users").get(verifyjwt, getAllProfiles)
+router.route("/edit-avatar").post(verifyjwt, upload.fields([{name: "avatar", maxCount: 1}]), editUserAvatar)
+router.route("/edit-name").post(verifyjwt, editUserName)
 
 
 
