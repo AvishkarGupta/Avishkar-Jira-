@@ -13,7 +13,7 @@ import { team } from "../../store/slice/teamSlice";
 const AllTasks = ( ) => {
 
   const dispatch = useDispatch()
-  const token = useSelector(state => state.login)
+  const token = useSelector(state => state.login.data)
   const data = useSelector(state => state.allTask)
 
 

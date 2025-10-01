@@ -34,7 +34,20 @@ const createTask = asyncHandler( async(req, res) => {
   let categoryOptions = catoptions.filter((cat)=>{return cat.toLocaleLowerCase() !== category.toLocaleLowerCase()})
 
   const task = await Task.create({
-    title, assigneeName: assignee, assignedTo : assigneTo._id, description, category, status, resources, dueDate, priority, owner: _id, ownerName: owner.Name, priorityOptions, statusOptions, categoryOptions
+    title, 
+    assigneeName: assignee, 
+    assignedTo : assigneTo._id, 
+    description, 
+    category, 
+    status, 
+    resources, 
+    dueDate, 
+    priority, 
+    owner: _id, 
+    ownerName: owner.Name, 
+    priorityOptions, 
+    statusOptions, 
+    categoryOptions
   })
 
   const createdTask = await Task.findById(task._id)
@@ -73,7 +86,7 @@ const getAllTask = asyncHandler( async(req, res) => {
 const getFilterdTasks = asyncHandler( async(req, res) => {
 
   const {owner, assignee, priority, category, status} = req.body
-
+  console.log(owner, assignee, priority, category, status)
   const query = {};
   if (owner && owner !== "NA") query.ownerName = owner;
   if (assignee && assignee !== "NA") query.assigneeName = assignee;
@@ -175,7 +188,7 @@ const updateOwner = asyncHandler( async(req, res) => {
     throw new ApiError(404, "User doesn't exist!")
   }
 
-  const task = await Task.findByIdAndUpdate(taskID, {ownerName: owner, owner: user._id})
+  const task = await Task.findByIdAndUpdate(taskID, {ownerName: owner, "owner": user._id})
 
   if (!task){
     throw new ApiError(404, "Task doesn't exit!") 

@@ -4,7 +4,7 @@ const About = () => {
 
   return <div className="w-full h-screen bg-pink-100">
     <div className="flex justify-center p-[1rem] text-3xl font-bold text-green-800">
-      Full-Stack Employee Tracking Management System (MERN)
+      Full-Stack Task Management System (MERN)
     </div>
     <div className="p-[1rem] items-center flex flex-col">
       <h3>
@@ -14,7 +14,7 @@ const About = () => {
         This is my first full stack, production-grade, scalable project.
       </p>
       <p>
-        A Employee Tracking Management System built using the MERN Stack <span className="text-red-500 font-bold">(MongoDB, Express.js, React, Node.js)</span>.
+        A Task Management System built using the MERN Stack <span className="text-red-500 font-bold">(MongoDB, Express.js, React, Node.js)</span>.
       </p>
     </div>
     <div className="p-[1rem] items-center flex flex-col">
@@ -29,6 +29,7 @@ const About = () => {
           </p>
           <p className="">
             <span className="font-semibold text-[1.2rem] text-green-500">Role-Based Features:</span>
+          </p>
             <ul className="pl-[1rem]">
               <li>  
                <span className="font-semibold text-[1.2rem]">Admin:</span> Admins can set up new accounts for onboarding employees.
@@ -37,7 +38,6 @@ const About = () => {
                 <span className="font-semibold text-[1.2rem]">Manager: </span>Managers can create, update, and assign tasks.
               </li>
             </ul>
-          </p>
           <p className="">
             <span className="font-semibold text-[1.2rem] text-green-500">Production-Grade Codebase:</span> Organized folder structure designed for scalability and maintainability.
           </p>

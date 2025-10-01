@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 const SaveFilterModel = ({onClose}) =>{
 
   const filter = useSelector(state => state.filterQuery.filter)
-  const token = useSelector(state => state.login.refreshToken)
+  const token = useSelector(state => state.login.data.refreshToken)
   const outerdiv = useRef()
   const nameValue = useRef()
   

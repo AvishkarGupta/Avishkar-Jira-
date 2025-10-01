@@ -1,7 +1,11 @@
+import { useDispatch } from "react-redux";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
 const PreviewScreen = ()=>{
+
+  const data = useDispatch(state => state.login.data) 
+
   return <div>
     <Header/>
       <div className="mt-17 flex-col flex items-center h-[30rem]">

@@ -11,7 +11,7 @@ const CreateNewUser = ( ) => {
   const [error, setError] = useState("")
   const navigate = useNavigate();
 
-  const data = useSelector(state => state.login)
+  const data = useSelector(state => state.login.data)
 
   const NameValue = useRef()
   const empIdValue = useRef()
@@ -110,8 +110,8 @@ const CreateNewUser = ( ) => {
     <div className="mt-17 rounded flex flex-col mb-[2rem] w-full">
       <Link onClick={goBack} className="relative left-[0rem] top-[1rem] flex"><IoIosArrowBack /> <span className="relative bottom-1">Back</span></Link>
       <h2 className="mx-auto font-bold text-3xl text-[rgb(48,27,241)] p-3 mb-3">Set up New colleague Account</h2>
-      <div className={`text-red-600 font-bold mb-2`}>{error}</div>
-      <div className={`text-green-600 font-bold mb-2`}>{created}</div>
+      <div className={`self-center text-red-600 font-bold mb-2`}>{error}</div>
+      <div className={`self-center text-green-600 font-bold mb-2`}>{created}</div>
       <form id="CreateNewUser" onSubmit={handlecreateUser} className="rounded mx-auto flex justify-center">
         <div className="flex flex-col items-center">
             <div className="flex w-full justify-around gap-20">

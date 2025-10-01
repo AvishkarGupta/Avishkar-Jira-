@@ -8,7 +8,7 @@ const EditProfilePopUpModel = ({onClose}) => {
 
   const avatarValue = useRef()
   const outterDiv = useRef()
-  const token = useSelector(state => state.login.refreshToken)
+  const token = useSelector(state => state.login.data.refreshToken)
   const dispatch = useDispatch()
 
   const saveChanges = (e) =>{

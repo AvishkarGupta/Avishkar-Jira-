@@ -13,7 +13,7 @@ const FilterTasksById = ( ) => {
 
   const dispatch = useDispatch()
   const [data, setData] = useState([])
-  const token = useSelector(state => state.login)
+  const token = useSelector(state => state.login.data)
   const user = useSelector(state => state.teamProfile)
 //   const data = useSelector(state => state.filterQuery)
   const filter = useSelector(state => state.filterQuery)
@@ -38,71 +38,7 @@ const FilterTasksById = ( ) => {
     })
     .catch( (err) => console.log(err) )
   }
-
-//   // filter Logic
-//   const [filters, setFilters] = useState({
-//     owner: "NA",
-//     assignee: "NA",
-//     priority: "NA",
-//     category: "NA",
-//     status: "NA",
-//     name: ""
-//   });
-
-//   const handleFilter = (e) => {
-//     const { name, value } = e.target;
-//      setFilters((prev) => ({ ...prev, [name]: value }));
-//   };
-
-//   const handleSearch = () =>{
-//     dispatch(addfilter(filters))
-//     getTasks(filters)
-//   }
-
-//   const handleClear = () => {
-//     console.log("Handle clear called")
-//   //   setFilters({
-//   //   owner: "NA",
-//   //   assignee: "NA",
-//   //   priority: "NA",
-//   //   category: "NA",
-//   //   status: "NA",
-//   //   name: ""
-//   // })
-//   //   dispatch(clearState({
-//   //   owner: "NA",
-//   //   assignee: "NA",
-//   //   priority: "NA",
-//   //   category: "NA",
-//   //   status: "NA",
-//   //   name: ""
-//   // })) 
-//   getTasks({
-//     owner: "NA",
-//     assignee: "NA",
-//     priority: "NA",
-//     category: "NA",
-//     status: "NA",
-//   })
-// }
-//   // get filterd tasks
-//   const getTasks = (filterData)=>{
-//     console.log(filterData)
-//     console.log("Handle clear called")
-
-//     axios.post("http://localhost:8000/api/task/filterd-tasks", filterData, {
-//     headers:{
-//       authorization: `Bearer ${token.refreshToken}`,
-//       "Content-Type": "application/json"
-//     }})
-//     .then( (res) => {
-//       // dispatch(storeData(res.data.data))
-//       console.log(res.data.data)
-//     })
-//     .catch( (err) => console.log(err) )
-//   }
-
-//   //get all uesr
+  
   const getUserInfo = () => {
 
     axios.get("http://localhost:8000/api/users/all-users", {
@@ -126,11 +62,11 @@ const FilterTasksById = ( ) => {
     navigate(-1)
   }
 
-  return<div className="bg-indigo-50">
+  return<div className=" bg-indigo-50">
     <Header/>
     <div className="flex min-h-[60rem]">
       <Sidebar/>
-      <div className="mt-17 w-[80%]">
+      <div className="mt-17 w-[80%] ">
         <div className="flex">
           <Link onClick={goBack} className="bottom-[-1rem] left-[1rem] relative flex"><IoIosArrowBack /> <span className="relative bottom-1">Back</span></Link>
         </div>

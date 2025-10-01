@@ -15,5 +15,6 @@ import FilteredTaskBoilerPlate from "./FilterdTaskBoilerPlate";
 import SaveFilterModel from "./SaveFilterModel";
 import FilterTasksById from "./FilteredTasksByID";
 import EditProfilePopUpModel from "./EditProfilePopUpModel"
+import GetProfileById from "./GetProfileById"
 
-export {CreateNewtask, CreateNewUser, MyProfile, AllTasks, TaskBoilerPlate, AssignedTasks, LifeAt, Careers, About, WeAreHiring, TasksID, KRA, FilterTasks, FilteredTaskBoilerPlate, SaveFilterModel, FilterTasksById, EditProfilePopUpModel};
+export {CreateNewtask, CreateNewUser, MyProfile, AllTasks, TaskBoilerPlate, AssignedTasks, LifeAt, Careers, About, WeAreHiring, TasksID, KRA, FilterTasks, FilteredTaskBoilerPlate, SaveFilterModel, FilterTasksById, EditProfilePopUpModel, GetProfileById};

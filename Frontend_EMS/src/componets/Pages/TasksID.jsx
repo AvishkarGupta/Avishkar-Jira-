@@ -36,8 +36,8 @@ const TasksID = () =>{
 
   const [isReadOnly, setIsReadOnly] = useState(true)
   const userNames = useSelector(state => state.teamProfile)
-  const token = useSelector(state => state.login)
-  const user = useSelector(state => state.login)
+  const token = useSelector(state => state.login.data)
+  const user = useSelector(state => state.login.data)
   const dispatch = useDispatch()
   
   const {id} = useParams();

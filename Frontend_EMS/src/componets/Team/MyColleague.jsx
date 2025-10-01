@@ -9,7 +9,7 @@ import { team } from "../../store/slice/teamSlice";
 
 const MyColleague = () => {
 
-  const token = useSelector(state => state.login)
+  const token = useSelector(state => state.login.data)
   const data = useSelector(state => state.teamProfile)
   const dispatch = useDispatch()
 
@@ -38,7 +38,7 @@ const MyColleague = () => {
                 <Link to={"/home"} className="bottom-[-1rem] left-[1rem] relative flex"><IoIosArrowBack /> <span className="relative bottom-1">Back to home</span></Link>
                 <h1 className=" m-auto pr-[6rem] font-bold text-3xl py-[2rem] text-red-600 text-shadow-fuchsia-300 text-shadow-lg">Say Hi! To your Colleague</h1>
               </div>
-              <div id="myColleague" className="flex flex-wrap justify-evenly gap-5 bg-[#c3ceda] h-screen max-h-[800px] overflow-y-scroll m-[1rem] rounded-2xl p-[1rem]">
+              <div id="myColleague" className="flex flex-wrap justify-evenly gap-5 bg-[#d4f1f4] h-screen max-h-[800px] overflow-y-scroll m-[1rem] rounded-2xl p-[1rem]">
                 <ProfileCard data={data.data}/>
               </div>
             </div>

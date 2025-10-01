@@ -5,6 +5,7 @@ import userRouter from "./routes/userRoutes.js"
 import taskRouter from "./routes/taskRouter.js"
 import commentRouter from "./routes/commentRouter.js"
 import filterRouter from "./routes/filterRouter.js"
+import searchRouter from "./routes/searchRouter.js"
 
 const app = express()
 
@@ -23,6 +24,7 @@ app.use("/api/users", userRouter)
 app.use("/api/task", taskRouter)
 app.use("/api/comment", commentRouter)
 app.use("/api/filter", filterRouter)
+app.use("/api/search", searchRouter)
 
 
 export default app;

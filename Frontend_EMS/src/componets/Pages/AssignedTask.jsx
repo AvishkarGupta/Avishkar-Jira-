@@ -10,7 +10,7 @@ import { assignedTask } from "../../store/slice/assignedTaskSlice";
 const AssignedTasks = () => {
 
   const dispatch = useDispatch()
-  const token = useSelector(state => state.login)
+  const token = useSelector(state => state.login.data)
   const data = useSelector(state => state.assignedTask)
 
   const handleTaskData = () =>{

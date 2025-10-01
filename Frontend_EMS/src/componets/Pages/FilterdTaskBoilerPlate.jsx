@@ -8,7 +8,7 @@ const FilteredTaskBoilerPlate = ( {data} ) =>{
   const [iscommentReadOnly, setIscommentReadOnly] = useState(null)
   const [isReadOnly, setIsReadOnly] = useState(true)
   const userNames = useSelector(state => state.teamProfile)
-  const token = useSelector(state => state.login)
+  const token = useSelector(state => state.login.data)
 
   const handlePriorityChange = (taskID, field, value) => {
     

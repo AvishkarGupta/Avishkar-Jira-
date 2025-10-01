@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 
 const Footer = ()=>{
 
-  const data = useSelector(state => state.login.refreshToken)
+  const data = useSelector(state => state.login.data.refreshToken)
   const titles = [
     {name: "LinkedIn" , URI: "https://www.linkedin.com/in/gupta-avishkar/", icon:<IoLogoLinkedin />}, 
     {name: "Git hub" , URI: "https://github.com/AvishkarGupta", icon:<FaGithub />}, 

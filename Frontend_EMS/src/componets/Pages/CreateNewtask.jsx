@@ -11,14 +11,14 @@ const CreateNewtask = () =>{
   const dispatch = useDispatch()
   const navigate = useNavigate();
   
-  const token = useSelector(state => state.login)
+  const token = useSelector(state => state.login.data)
   const membersName = useSelector(state => state.teamProfile)
   console.log(membersName.data)
   
   const [created, setCreated] = useState("")
   const [error, setError] = useState("")
 
-  const data = useSelector(state => state.login)
+  const data = useSelector(state => state.login.data)
 
   const titleValue = useRef()
   const descriptionValue = useRef()

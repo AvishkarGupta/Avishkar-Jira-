@@ -32,7 +32,7 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new ApiError(400, "User email and empId already exist in our database")
   }
   
-  const reportingManager = await User.findOne({Name: reportesTo})
+  const reportingManager = await User.findOne({Name: reportesTo, $options: "i" })
   if (!reportingManager) {
     throw new ApiError (400, "Unable to find Reporing Manager in dataBase.")
   }
@@ -62,11 +62,15 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new ApiError(500, "Something went wrong while creating user")
   }
 
-  return res.status(200).json(new ApiResponse(200, createdUser, "User created successfully"))
+  return res
+  .status(200)
+  .json(new ApiResponse(200, createdUser, "User created successfully"))
 })
 
 const loginUser = asyncHandler( async(req, res)=>{
   const {email, password} = req.body
+
+  console.log("user login request received")
 
   if (!email | !password){
     throw new ApiError(401, "Email and password required")
@@ -86,7 +90,7 @@ const loginUser = asyncHandler( async(req, res)=>{
 
   const {accessToken, refreshToken} = await generateAccessAndRefreshToken(user._id)
 
-  const loggedInUser = await User.findById(user._id).select("-password -refershToken")
+  const loggedInUser = await User.findById(user._id).select("-password")
 
   const options = {
     httpOnly: true,
@@ -117,7 +121,7 @@ const logoutUser = asyncHandler( async(req, res)=>{
 
 const getAllProfiles = asyncHandler( async(req, res) => {
 
-  const profiles = await User.find()
+  const profiles = await User.find().select("-password, -refershToken")
 
   return res
   .status(200)
@@ -158,7 +162,7 @@ const editUserName = asyncHandler( async( req, res) =>{
     throw new ApiError(400, "New user name is required.")
   }
 
-  const user = await User.findByIdAndUpdate(_id, {Name: name}, {new:true})
+  const user = await User.findByIdAndUpdate(_id, {Name: name}, {new:true}).select("-password")
 
   if (!user){
     throw new ApiError(500, "Something went wrong while update user data")

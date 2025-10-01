@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { MdOutlineDelete } from "react-icons/md";
 
 const Sidebar = () => {
 
   const [filters, setFilters] = useState([])
-  const token = useSelector(state => state.login.refreshToken)
-  const data = useSelector( state => state.login)
+  const token = useSelector(state => state.login.data.refreshToken)
+  const data = useSelector( state => state.login.data)
 
   const sidebar = [
     {
@@ -98,17 +98,20 @@ const Sidebar = () => {
   
   return <>
   <div className="text-[1.2rem] mt-17 min-w-[20rem] h-auto border-black flex flex-col bg-[#071330] pt-[0.5rem]">
-    {data.role === "admin" ? newSidebar.map( (title) => (
+    {data.role === "admin" 
+    ? 
+    newSidebar.map( (title) => (
       <div key={title.name} className="px-3 pt-3 mx-2 text-white font-mono font-semibold border-b-1 border-[#f2eeee39] flex gap-4 justify-between">
-        <Link  to={title.URI ? title.URI : `/filter-tasks/${title.name}`} className="">{title.name}</Link>
+        <NavLink  to={title.URI ? title.URI : `/filter-tasks/${title.name}`} className="">{title.name}</NavLink>
          {!title.URI && <MdOutlineDelete key={title.name} onClick={(e)=>{handleDeleteFilter(e, title.name)}} className="self-end " />}
       </div>
     ) )
     
     :
+    
     newSidebarIfUserIsNotAdmin.map( (title) => (
-      <div key={title.name} className="text-[1.2rem] mt-17 min-w-[20rem] h-auto border-black flex flex-col bg-[#071330] pt-[0.5rem]">
-        <Link  to={title.URI ? title.URI : `/filter-tasks/${title.name}`} className="">{title.name}</Link>
+      <div key={title.name} className="px-3 pt-3 mx-2 text-white font-mono font-semibold border-b-1 border-[#f2eeee39] flex gap-4 justify-between">
+        <NavLink  to={title.URI ? title.URI : `/filter-tasks/${title.name}`} className="">{title.name}</NavLink>
         {!title.URI && <MdOutlineDelete key={title.name} onClick={(e)=>{handleDeleteFilter(e, title.name)}} className="self-end " />}
       </div>
     ) )

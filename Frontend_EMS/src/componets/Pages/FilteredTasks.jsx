@@ -14,7 +14,7 @@ const FilterTasks = ( ) => {
 
   const [showModel, setShowModel] = useState(false)
   const dispatch = useDispatch()
-  const token = useSelector(state => state.login)
+  const token = useSelector(state => state.login.data)
   const user = useSelector(state => state.teamProfile)
   const data = useSelector(state => state.filterQuery)
   const filter = useSelector(state => state.filterQuery)
