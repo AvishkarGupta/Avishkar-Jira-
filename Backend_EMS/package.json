@@ -2,10 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Employee tracking system",
-  "main": "app.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node Backend_EMS/src/app.js",
+    "start": "node src/app.js",
     "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
   },
   "keywords": [
