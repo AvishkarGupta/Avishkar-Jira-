@@ -2,11 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const MainScreen = () => {
 
   const token = useSelector(state => state.login.data)
-  // const allTask = useSelector(state => state.allTask.data)
   const dispatch = useDispatch()
   const [allTask, setAllTask] = useState([])
   const [assignedTasks, setAssignedTasks] = useState([])
@@ -14,7 +14,7 @@ const MainScreen = () => {
   const [blockerTasks, setBlockerTasks] = useState([])
 
   const handleAllTaskData = () =>{
-    axios.get("http://localhost:8000/api/task/all-tasks", {
+    axios.get(`${API_URL}/api/task/all-tasks`, {
     headers:{
       authorization: `Bearer ${token.refreshToken}`
     }
@@ -26,7 +26,7 @@ const MainScreen = () => {
   }
 
   const handleAssignedTaskData = () =>{
-    axios.get("http://localhost:8000/api/task/assigned-tasks", {
+    axios.get(`${API_URL}/api/task/assigned-tasks`, {
     headers:{
       authorization: `Bearer ${token.refreshToken}`
     }
@@ -39,7 +39,7 @@ const MainScreen = () => {
 
   const getCreatedTasks = (filterData)=>{
 
-    axios.post("http://localhost:8000/api/task/filterd-tasks", filterData, {
+    axios.post(`${API_URL}/api/task/filterd-tasks`, filterData, {
     headers:{
       authorization: `Bearer ${token.refreshToken}`,
       "Content-Type": "application/json"
@@ -60,7 +60,7 @@ const MainScreen = () => {
 
   const getBlockersTasks = (filterData)=>{
 
-    axios.post("http://localhost:8000/api/task/filterd-tasks", filterData, {
+    axios.post(`${API_URL}/api/task/filterd-tasks`, filterData, {
     headers:{
       authorization: `Bearer ${token.refreshToken}`,
       "Content-Type": "application/json"

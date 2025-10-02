@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../store/slice/loginSlice";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const EditProfilePopUpModel = ({onClose}) => {
 
@@ -19,7 +20,7 @@ const EditProfilePopUpModel = ({onClose}) => {
     formData.append("Name", name)
     formData.append("avatar", avatar)
 
-    axios.post("http://localhost:8000/api/users/edit-avatar", formData, {headers:{
+    axios.post(`${API_URL}/api/users/edit-avatar`, formData, {headers:{
       authorization: `Bearer ${token}`,
       "Content-Type": "multipart/form-data"
     }})

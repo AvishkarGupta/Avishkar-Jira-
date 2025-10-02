@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import EditProfilePopUpModel from "./EditProfilePopUpModel";
 import { loginUser } from "../../store/slice/loginSlice";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const GetProfileById = () => {
 
@@ -24,7 +25,7 @@ const GetProfileById = () => {
   }
 
   const getAssignedTasks = () =>{
-      axios.get("http://localhost:8000/api/task/assigned-tasks", {headers:{
+      axios.get(`${API_URL}/api/task/assigned-tasks`, {headers:{
         authorization: `Bearer ${token}`,
         "Content-Type": "application/json"
       }})
@@ -36,7 +37,7 @@ const GetProfileById = () => {
   }
 
   const getCreatedTasks = () =>{
-      axios.get("http://localhost:8000/api/task/my-tasks", {headers:{
+      axios.get(`${API_URL}/api/task/my-tasks`, {headers:{
         authorization: `Bearer ${token}`,
         "Content-Type": "application/json"
       }})
@@ -49,7 +50,7 @@ const GetProfileById = () => {
 
   const getTeam = () =>{
     console.log("Api called for get team")
-      axios.get("http://localhost:8000/api/users/all-users", {headers:{
+      axios.get(`${API_URL}/api/users/all-users`, {headers:{
         authorization: `Bearer ${token}`,
         "Content-Type": "application/json"
       }})

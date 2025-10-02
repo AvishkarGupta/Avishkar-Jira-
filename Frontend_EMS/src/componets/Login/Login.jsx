@@ -5,6 +5,7 @@ import { loginUser } from "../../store/slice/loginSlice.js";
 import { Link } from "react-router-dom";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Login = ()=>{
 
@@ -20,7 +21,7 @@ const Login = ()=>{
     let email = emailVal.current.value
     let password = passwordVal.current.value
 
-    axios({method: 'post', url: 'http://localhost:8000/api/users/login', data: {email, password}})
+    axios({method: 'post', url: `${API_URL}/api/users/login`, data: {email, password}})
     .then((resolve)=> {
       console.log(resolve)
       Cookies.set("RefershToken", resolve.data.data.refreshToken)

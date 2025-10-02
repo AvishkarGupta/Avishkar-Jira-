@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { IoIosArrowBack } from "react-icons/io";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const CreateNewUser = ( ) => {
   
@@ -66,16 +67,8 @@ const CreateNewUser = ( ) => {
         formdata.append("reportesTo", reportesTo)
         formdata.append("avatar", avatar)
 
-    // axios({
-    //   method:"post", 
-    //   url: "http://localhost:8000/api/users/register",
-    //   headers: {
-    //   authorization: `Bearer ${data.refreshToken}`,
-    //   "Content-Type": "application/json"
-    // }}, 
-    //   formdata)
     axios.post(
-    "http://localhost:8000/api/users/register",
+    `${API_URL}/api/users/register`,
     formdata,
     {
       headers: {

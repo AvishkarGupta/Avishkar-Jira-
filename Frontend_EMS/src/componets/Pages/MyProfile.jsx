@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import EditProfilePopUpModel from "./EditProfilePopUpModel";
 import { loginUser } from "../../store/slice/loginSlice";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const MyProfile = () => {
 
@@ -25,7 +26,7 @@ const MyProfile = () => {
   }
 
   const getAssignedTasks = () =>{
-      axios.get("http://localhost:8000/api/task/assigned-tasks", {headers:{
+      axios.get(`${API_URL}/api/task/assigned-tasks`, {headers:{
         authorization: `Bearer ${data.refreshToken}`,
         "Content-Type": "application/json"
       }})
@@ -38,7 +39,7 @@ const MyProfile = () => {
   }
 
   const getCreatedTasks = () =>{
-      axios.get("http://localhost:8000/api/task/my-tasks", {headers:{
+      axios.get(`${API_URL}/api/task/my-tasks`, {headers:{
         authorization: `Bearer ${data.refreshToken}`,
         "Content-Type": "application/json"
       }})
@@ -52,7 +53,7 @@ const MyProfile = () => {
 
   const getTeam = () =>{
       console.log("Api called for get team from myprofile")
-      axios.get("http://localhost:8000/api/users/all-users", {headers:{
+      axios.get(`${API_URL}/api/users/all-users`, {headers:{
         authorization: `Bearer ${data.refreshToken}`,
         "Content-Type": "application/json"
       }})
@@ -73,7 +74,7 @@ const MyProfile = () => {
     setReadOnly(true)
     const name = {name: e.target.value}
 
-    axios.post("http://localhost:8000/api/users/edit-name", name, {headers:{
+    axios.post(`${API_URL}/api/users/edit-name`, name, {headers:{
         authorization: `Bearer ${data.refreshToken}`,
         "Content-Type": "application/json"
       }})

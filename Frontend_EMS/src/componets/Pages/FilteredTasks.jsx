@@ -9,6 +9,7 @@ import { addfilter, clearState, storeData } from "../../store/slice/filterSlice"
 import { team } from "../../store/slice/teamSlice";
 import FilteredTaskBoilerPlate from "./FilterdTaskBoilerPlate";
 import SaveFilterModel from "./SaveFilterModel";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const FilterTasks = ( ) => {
 
@@ -73,7 +74,7 @@ const FilterTasks = ( ) => {
   // get filterd tasks
   const getTasks = (filterData)=>{
 
-    axios.post("http://localhost:8000/api/task/filterd-tasks", filterData, {
+    axios.post(`${API_URL}/api/task/filterd-tasks`, filterData, {
     headers:{
       authorization: `Bearer ${token.refreshToken}`,
       "Content-Type": "application/json"
@@ -87,7 +88,7 @@ const FilterTasks = ( ) => {
   //get all uesr
   const getUserInfo = () => {
 
-    axios.get("http://localhost:8000/api/users/all-users", {
+    axios.get(`${API_URL}/api/users/all-users`, {
     headers: {
       authorization: `Bearer ${token.refreshToken}`,
       "Content-Type": "application/json"

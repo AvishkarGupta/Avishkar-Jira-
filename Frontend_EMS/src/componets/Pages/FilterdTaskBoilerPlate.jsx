@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState } from "react"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+const API_URL = import.meta.env.VITE_API_URL;
 
 const FilteredTaskBoilerPlate = ( {data} ) =>{
 
@@ -15,7 +16,7 @@ const FilteredTaskBoilerPlate = ( {data} ) =>{
     const data = {taskID, [field]: value}
     console.log(data)
 
-    axios.post("http://localhost:8000/api/task/update-priority", data, {
+    axios.post(`${API_URL}/api/task/update-priority`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
@@ -31,7 +32,7 @@ const FilteredTaskBoilerPlate = ( {data} ) =>{
     const data = {taskID, [field]: value}
     console.log(data)
 
-    axios.post("http://localhost:8000/api/task/update-category", data, {
+    axios.post(`${API_URL}/api/task/update-category`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
@@ -47,7 +48,7 @@ const FilteredTaskBoilerPlate = ( {data} ) =>{
     const data = {taskID, [field]: value}
     console.log(data)
 
-    axios.post("http://localhost:8000/api/task/update-status", data, {
+    axios.post(`${API_URL}/api/task/update-status`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
@@ -63,7 +64,7 @@ const FilteredTaskBoilerPlate = ( {data} ) =>{
     const data = {taskID, [field]: value}
     console.log(data)
 
-    axios.post("http://localhost:8000/api/task/update-owner", data, {
+    axios.post(`${API_URL}/api/task/update-owner`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
@@ -79,7 +80,7 @@ const FilteredTaskBoilerPlate = ( {data} ) =>{
     const data = {taskID, [field]: value}
     console.log(data)
 
-    axios.post("http://localhost:8000/api/task/update-assignee", data, {
+    axios.post(`${API_URL}/api/task/update-assignee`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
@@ -95,7 +96,7 @@ const FilteredTaskBoilerPlate = ( {data} ) =>{
     const data = {taskID, [field]: value}
     console.log(data)
 
-    axios.post("http://localhost:8000/api/task/update-title", data, {
+    axios.post(`${API_URL}/api/task/update-title`, data, {
       headers:{
         authorization: `Bearer ${token.refreshToken}`,
         "Content-Type": `application/json`
@@ -110,7 +111,7 @@ const FilteredTaskBoilerPlate = ( {data} ) =>{
     const data = {taskID, [field]: value}
     console.log(data)
     
-    axios.post("http://localhost:8000/api/task/update-description", data, {
+    axios.post(`${API_URL}/api/task/update-description`, data, {
       headers:{
         authorization: `Bearer ${token.refreshToken}`,
         "Content-Type": "application/json"
@@ -125,7 +126,7 @@ const FilteredTaskBoilerPlate = ( {data} ) =>{
     const data = {taskID, [field]: value}
     console.log(data)
 
-    axios.post("http://localhost:8000/api/task/update-resources", data, {
+    axios.post(`${API_URL}/api/task/update-resources`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-Type": "application/json"

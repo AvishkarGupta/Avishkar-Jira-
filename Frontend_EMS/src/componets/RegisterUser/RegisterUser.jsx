@@ -2,6 +2,8 @@ import axios from "axios";
 import Header from "../Header/Header";
 import { useRef } from "react";
 import { useState } from "react";
+const API_URL = import.meta.env.VITE_API_URL;
+
 const RegisterUser = ()=>{
 
   const [db_Response, setDb_Response] = useState("")
@@ -47,7 +49,7 @@ const RegisterUser = ()=>{
         setDb_Response("All fileds are required")
       }else{
         console.log([emp, fn, ln, mail, pw, dob, doj, role])
-        const res = await axios.post("http://localhost:8000/users/register", data);
+        const res = await axios.post(`${API_URL}/users/register`, data);
         
         console.log("User registered:", res.data.message);
         setDb_Response(res.data.message)

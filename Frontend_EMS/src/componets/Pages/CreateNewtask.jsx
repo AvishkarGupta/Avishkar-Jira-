@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
 import { IoIosArrowBack } from "react-icons/io";
 import { team } from "../../store/slice/teamSlice"
+const API_URL = import.meta.env.VITE_API_URL;
 
 const CreateNewtask = () =>{
 
@@ -44,7 +45,7 @@ const CreateNewtask = () =>{
 
     axios({
       method:"post", 
-      url: "http://localhost:8000/api/task/create-task", 
+      url: `${API_URL}/api/task/create-task`, 
       data: {
         title, 
         description,
@@ -77,7 +78,7 @@ const CreateNewtask = () =>{
   
   
   const handleTeamData = ()=>{
-    axios.get("http://localhost:8000/api/users/all-users", {headers:{
+    axios.get(`${API_URL}/api/users/all-users`, {headers:{
       authorization: `Bearer ${token.refreshToken}`
     }})
     .then((res)=>{

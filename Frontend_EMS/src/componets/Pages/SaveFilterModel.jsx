@@ -2,6 +2,7 @@ import axios from "axios";
 import { useRef } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const SaveFilterModel = ({onClose}) =>{
 
@@ -26,7 +27,7 @@ const SaveFilterModel = ({onClose}) =>{
     }
     console.log(newFilter)  
   
-  axios.post("http://localhost:8000/api/filter/save-filter", newFilter, {headers:
+  axios.post(`${API_URL}/api/filter/save-filter`, newFilter, {headers:
     {
       "authorization": `Bearer ${token}`,
       "Content-Type": "application/json"

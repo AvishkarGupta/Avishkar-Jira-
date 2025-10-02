@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 import { FcDeleteRow } from "react-icons/fc";
 import { CiEdit } from "react-icons/ci"
 import { TfiNewWindow } from "react-icons/tfi";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const TaskBoilerPlate = ( {data} ) =>{
 
@@ -20,7 +21,7 @@ const TaskBoilerPlate = ( {data} ) =>{
     const data = {taskID, [field]: value}
     console.log(data)
 
-    axios.post("http://localhost:8000/api/task/update-priority", data, {
+    axios.post(`${API_URL}/api/task/update-priority`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
@@ -36,7 +37,7 @@ const TaskBoilerPlate = ( {data} ) =>{
     const data = {taskID, [field]: value}
     console.log(data)
 
-    axios.post("http://localhost:8000/api/task/update-category", data, {
+    axios.post(`${API_URL}/api/task/update-category`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
@@ -52,7 +53,7 @@ const TaskBoilerPlate = ( {data} ) =>{
     const data = {taskID, [field]: value}
     console.log(data)
 
-    axios.post("http://localhost:8000/api/task/update-status", data, {
+    axios.post(`${API_URL}/api/task/update-status`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
@@ -68,7 +69,7 @@ const TaskBoilerPlate = ( {data} ) =>{
     const data = {taskID, [field]: value}
     console.log(data)
 
-    axios.post("http://localhost:8000/api/task/update-owner", data, {
+    axios.post(`${API_URL}/api/task/update-owner`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
@@ -84,7 +85,7 @@ const TaskBoilerPlate = ( {data} ) =>{
     const data = {taskID, [field]: value}
     console.log(data)
 
-    axios.post("http://localhost:8000/api/task/update-assignee", data, {
+    axios.post(`${API_URL}/api/task/update-assignee`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
@@ -100,7 +101,7 @@ const TaskBoilerPlate = ( {data} ) =>{
     const data = {taskID, [field]: value}
     console.log(data)
 
-    axios.post("http://localhost:8000/api/task/update-title", data, {
+    axios.post(`${API_URL}/api/task/update-title`, data, {
       headers:{
         authorization: `Bearer ${token.refreshToken}`,
         "Content-Type": `application/json`
@@ -115,7 +116,7 @@ const TaskBoilerPlate = ( {data} ) =>{
     const data = {taskID, [field]: value}
     console.log(data)
     
-    axios.post("http://localhost:8000/api/task/update-description", data, {
+    axios.post(`${API_URL}/api/task/update-description`, data, {
       headers:{
         authorization: `Bearer ${token.refreshToken}`,
         "Content-Type": "application/json"
@@ -130,7 +131,7 @@ const TaskBoilerPlate = ( {data} ) =>{
     const data = {taskID, [field]: value}
     console.log(data)
 
-    axios.post("http://localhost:8000/api/task/update-resources", data, {
+    axios.post(`${API_URL}/api/task/update-resources`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-Type": "application/json"
@@ -141,23 +142,6 @@ const TaskBoilerPlate = ( {data} ) =>{
     
   }
   
-  // const getUserInfo = () => {
-
-  //   axios.get("http://localhost:8000/api/users/all-users", {
-  //   headers: {
-  //     authorization: `Bearer ${token.refreshToken}`,
-  //     "Content-Type": "application/json"
-  //   }})
-  //   .then((res)=>{
-  //     // console.log(res.data.data)
-  //     dispatch(team(res.data.data))
-  //   })
-  //   .catch((err)=> console.log(err))
-  // }
-
-  // useEffect(()=>{
-  //     getUserInfo()
-  // }, [])
 
   return <>
   {data.length === 0 ? <div className="text-2xl"> No Tasks Found taht matches the above query.</div> :

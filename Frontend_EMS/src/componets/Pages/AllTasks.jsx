@@ -9,6 +9,7 @@ import { allTask } from "../../store/slice/allTaskSlice";
 import { useState } from "react";
 import { addfilter, clearState } from "../../store/slice/filterSlice";
 import { team } from "../../store/slice/teamSlice";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const AllTasks = ( ) => {
 
@@ -20,7 +21,7 @@ const AllTasks = ( ) => {
   //get all uesr
   const getUserInfo = () => {
 
-    axios.get("http://localhost:8000/api/users/all-users", {
+    axios.get(`${API_URL}/api/users/all-users`, {
     headers: {
       authorization: `Bearer ${token.refreshToken}`,
       "Content-Type": "application/json"
@@ -34,7 +35,7 @@ const AllTasks = ( ) => {
 
   // Api for all task
   const handleTaskData = () =>{
-    axios.get("http://localhost:8000/api/task/all-tasks", {
+    axios.get(`${API_URL}/api/task/all-tasks`, {
     headers:{
       authorization: `Bearer ${token.refreshToken}`
     }

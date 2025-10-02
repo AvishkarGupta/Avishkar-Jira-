@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import axios from "axios";
 import { assignedTask } from "../../store/slice/assignedTaskSlice";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const AssignedTasks = () => {
 
@@ -14,7 +15,7 @@ const AssignedTasks = () => {
   const data = useSelector(state => state.assignedTask)
 
   const handleTaskData = () =>{
-    axios.get("http://localhost:8000/api/task/assigned-tasks", {
+    axios.get(`${API_URL}/api/task/assigned-tasks`, {
     headers:{
       authorization: `Bearer ${token.refreshToken}`
     }

@@ -5,9 +5,11 @@ import { FaPhoenixFramework } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import Cookies from 'js-cookie';
 import { useEffect, useState } from "react";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Header = ()=>{
 
+  console.log(API_URL)
   const dispatch = useDispatch()
   const [input, setInput] = useState()
   const [result ,setResult] = useState([])
@@ -18,7 +20,7 @@ const Header = ()=>{
 
   const handleLogout = ()=>{
     console.log("log out called",data.refreshToken)
-  axios.get('http://localhost:8000/api/users/logout',{
+  axios.get(`${API_URL}/api/users/logout`,{
     headers: {
       authorization: `Bearer ${data.refreshToken}`,
       "Content-Type": "application/json"
@@ -41,15 +43,12 @@ const Header = ()=>{
   ]
 
   const search = () =>{
-
     if(cache[input]){
       console.log("chache")
       setResult(cache[input])
       return;
     }
-
-    console.log("api called", input)
-    axios.get(`http://localhost:8000/api/search/q=${input}`, {headers:{
+    axios.get(`${API_URL}/api/search/q=${input}`, {headers:{
       authorization: `Bearer ${data.refreshToken}`,
       "Content-Type": "application-json"
     }})

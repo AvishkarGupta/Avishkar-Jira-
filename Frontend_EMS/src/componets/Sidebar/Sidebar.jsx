@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { MdOutlineDelete } from "react-icons/md";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Sidebar = () => {
 
@@ -66,7 +67,7 @@ const Sidebar = () => {
 
   const getAllFilters = () => {
 
-    axios.get("http://localhost:8000/api/filter/get-filters", {headers:{
+    axios.get(`${API_URL}/api/filter/get-filters`, {headers:{
       authorization: `Bearer ${token}`,
       "Content-Type": "application/json"
     }})
@@ -86,7 +87,7 @@ const Sidebar = () => {
   const handleDeleteFilter = (e, filterName) =>{
     console.log(e.target, filterName)
 
-    axios.post("http://localhost:8000/api/filter/delete-filter", {filterName}, {headers:{
+    axios.post(`${API_URL}/api/filter/delete-filter`, {filterName}, {headers:{
       authorization: `Bearer ${token}`
     }})
     .then(res => {

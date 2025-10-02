@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import axios from "axios";
 import { team } from "../../store/slice/teamSlice";
+const API_URL = import.meta.env.VITE_API_URL;
 
 
 const MyColleague = () => {
@@ -15,7 +16,7 @@ const MyColleague = () => {
 
 
   const handleTeamData = ()=>{
-    axios.get("http://localhost:8000/api/users/all-users", {headers:{
+    axios.get(`${API_URL}/api/users/all-users`, {headers:{
       authorization: `Bearer ${token.refreshToken}`
     }})
     .then((res)=>{
