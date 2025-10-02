@@ -26,8 +26,6 @@ const addComment = asyncHandler( async(req, res) => {
         posterName: user.Name
       }
     }}, {new:true})
-    
-    console.log(newComment)
 
   if (!newComment){
     throw new ApiError(500, "Unable to add comment")
@@ -58,7 +56,6 @@ const deleteComment = asyncHandler( async(req, res) => {
 const editComment = asyncHandler( async(req, res) => {
 
   const {taskID, commentID, content} = req.body
-  console.log(taskID, commentID, content)
 
   const task = await Task.findOneAndUpdate({
     _id: taskID, 

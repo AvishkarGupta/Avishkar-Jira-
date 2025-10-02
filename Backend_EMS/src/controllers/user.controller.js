@@ -70,8 +70,6 @@ const registerUser = asyncHandler(async (req, res) => {
 const loginUser = asyncHandler( async(req, res)=>{
   const {email, password} = req.body
 
-  console.log("user login request received")
-
   if (!email | !password){
     throw new ApiError(401, "Email and password required")
   }
@@ -131,11 +129,6 @@ const getAllProfiles = asyncHandler( async(req, res) => {
 const editUserAvatar = asyncHandler( async(req, res) =>{
 
   const {_id} = req.user
-  // const {Name} = req.body
-
-  // console.log(_id, Name)
-
-  // if (Name === "") console.log("Name is empty")
 
   const avatarLocalPath = await req.files?.avatar[0]?.path
   
@@ -145,7 +138,6 @@ const editUserAvatar = asyncHandler( async(req, res) =>{
 
   const avatar = await uploadOnCloudinary(avatarLocalPath)
 
-  console.log(avatar)
   const user = await User.findByIdAndUpdate(_id, {avatar}, {new:true})
 
   return res

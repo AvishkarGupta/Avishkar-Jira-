@@ -23,7 +23,6 @@ const Login = ()=>{
 
     axios({method: 'post', url: `${API_URL}/api/users/login`, data: {email, password}})
     .then((resolve)=> {
-      console.log(resolve)
       Cookies.set("RefershToken", resolve.data.data.refreshToken)
       dispatch(loginUser(resolve.data.data))
       setTimeout(()=>{
@@ -33,12 +32,10 @@ const Login = ()=>{
     .catch((error)=> {
       if (error){
         console.log(error)
-        console.log("Avishkar error")
         setError("Invaid credentials")
         Cookies.remove("RefershToken")
       }
     })
-    .finally(()=> console.log("Request sent"))
   }
 
   return (

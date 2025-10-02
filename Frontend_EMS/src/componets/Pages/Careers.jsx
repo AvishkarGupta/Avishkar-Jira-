@@ -14,15 +14,6 @@ const Careers = () => {
     const name = nameValue.current.value
     const email = emailValue.current.value
     const contact = contactValue.current.value
-
-    console.log("hello", name, email, contact)
-    axios.post("")
-    .then( (res)=>{
-      console.log(res)
-    } )
-    .catch((err)=>{
-      console.log(err)
-    })
   }
 
   return <div className="flex flex-col justify-center items-center w-full h-screen bg-blue-100">

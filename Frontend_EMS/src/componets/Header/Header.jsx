@@ -9,7 +9,6 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 const Header = ()=>{
 
-  console.log(API_URL)
   const dispatch = useDispatch()
   const [input, setInput] = useState()
   const [result ,setResult] = useState([])
@@ -19,7 +18,6 @@ const Header = ()=>{
   const data = useSelector((state)=> state.login.data)
 
   const handleLogout = ()=>{
-    console.log("log out called",data.refreshToken)
   axios.get(`${API_URL}/api/users/logout`,{
     headers: {
       authorization: `Bearer ${data.refreshToken}`,
@@ -44,7 +42,7 @@ const Header = ()=>{
 
   const search = () =>{
     if(cache[input]){
-      console.log("chache")
+      console.log("Response from cache")
       setResult(cache[input])
       return;
     }
@@ -53,7 +51,6 @@ const Header = ()=>{
       "Content-Type": "application-json"
     }})
     .then((res) => {
-      console.log(res)
       setResult(res.data.data)
       setCache((prev) => ({...prev, [input]: res.data.data}))
     })

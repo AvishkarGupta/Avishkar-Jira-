@@ -25,7 +25,6 @@ const EditProfilePopUpModel = ({onClose}) => {
       "Content-Type": "multipart/form-data"
     }})
     .then(res => {
-      console.log(res)
       dispatch(loginUser(res.data.data))
     })
     .catch(err => console.log(err))

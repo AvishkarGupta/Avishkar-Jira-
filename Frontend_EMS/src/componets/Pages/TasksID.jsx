@@ -52,7 +52,6 @@ const TasksID = () =>{
       }
     })
     .then(res => {
-      console.log(res.data.data)
       let data = res.data.data
       return setTask(data)
     })
@@ -62,102 +61,84 @@ const TasksID = () =>{
   const handlePriorityChange = (taskID, field, value) => {
     
     const data = {taskID, [field]: value}
-    console.log(data)
 
     axios.post(`${API_URL}/api/task/update-priority`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
     }})
-    .then((res)=>{
-      console.log(res)
-    })
+    .then()
     .catch((err)=> console.log(err))
   }
 
   const handleCategoryChange = (taskID, field, value) => {
     
     const data = {taskID, [field]: value}
-    console.log(data)
 
     axios.post(`${API_URL}/api/task/update-category`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
     }})
-    .then((res)=>{
-      console.log(res)
-    })
+    .then()
     .catch((err)=> console.log(err))
   }
 
   const handleStatusChange = (taskID, field, value) => {
     
     const data = {taskID, [field]: value}
-    console.log(data)
 
     axios.post(`${API_URL}/api/task/update-status`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
     }})
-    .then((res)=>{
-      console.log(res)
-    })
+    .then()
     .catch((err)=> console.log(err))
   }
 
   const handleOwnerChange = (taskID, field, value) => {
     
     const data = {taskID, [field]: value}
-    console.log(data)
 
     axios.post(`${API_URL}/api/task/update-owner`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
     }})
-    .then((res)=>{
-      console.log(res)
-    })
+    .then()
     .catch((err)=> console.log(err))
   }
 
   const handleAssigneeChange = (taskID, field, value) => {
     
     const data = {taskID, [field]: value}
-    console.log(data)
 
     axios.post(`${API_URL}/api/task/update-assignee`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
     }})
-    .then((res)=>{
-      console.log(res)
-    })
+    .then()
     .catch((err)=> console.log(err))
   }
 
   const handleUpdatedTitle = (taskID, field, value) => {
 
     const data = {taskID, [field]: value}
-    console.log(data)
-
     axios.post(`${API_URL}/api/task/update-title`, data, {
       headers:{
         authorization: `Bearer ${token.refreshToken}`,
         "Content-Type": `application/json`
       }
     })
-    .then((res) => console.log(res))
+    .then()
     .catch((err)=> console.log(err))
   } 
   
   const handleUpdatedDescription = (taskID, field, value) => {
     
     const data = {taskID, [field]: value}
-    console.log(data)
     
     axios.post(`${API_URL}/api/task/update-description`, data, {
       headers:{
@@ -165,14 +146,13 @@ const TasksID = () =>{
         "Content-Type": "application/json"
       }
     })
-    .then(res => console.log(res))
+    .then()
     .catch(err => console.log(err))
   } 
   
   const handleUpdatedResources = (taskID, field, value) => {
 
     const data = {taskID, [field]: value}
-    console.log(data)
 
     axios.post(`${API_URL}/api/task/update-resources`, data, {
       headers: {
@@ -180,7 +160,7 @@ const TasksID = () =>{
         "Content-Type": "application/json"
       }
     })
-    .then((res) => console.log(res))
+    .then()
     .catch((err)=>console.log(err))
     
   }
@@ -189,7 +169,6 @@ const TasksID = () =>{
     
     e.preventDefault()
     const data = {taskID, [field]: value}
-    console.log(data)
     
     axios.post(`${API_URL}/api/comment/add-comment`, data, {
       headers: {
@@ -198,7 +177,6 @@ const TasksID = () =>{
       }
     })
     .then(res => {
-      console.log("add comment response", res.data.data)
       setTask(res.data.data)
     })
     .catch(err => console.log(err))
@@ -206,7 +184,6 @@ const TasksID = () =>{
   } 
   
   const handleCommentDelete = (taskID, commentID) =>{
-    console.log(taskID, commentID)
 
     const data = {
       taskID, commentID
@@ -219,19 +196,16 @@ const TasksID = () =>{
       }
     })
     .then(res => {
-      console.log("Delete response", res)
       setTask(res.data.data)
     })
     .catch(err => console.log(err))
   }
 
   const handleCommentEditbutton = (e, taskID, commentID, field, value) =>{
-    console.log("Button can be edit now", e)
     setIsCommentReadOnly(commentID)
   }
   
   const handleCommentEditState = () =>{
-    console.log("Envet called")
     setTimeout(()=>{
       setIsCommentReadOnly(null)
     }, 500)
@@ -239,7 +213,6 @@ const TasksID = () =>{
   }
 
   const handleCommentEditSave = (e, taskID, commentID, field, value) =>{
-    console.log(e)
     e.preventDefault()
     
     const data = {
@@ -247,19 +220,14 @@ const TasksID = () =>{
       commentID,
       [field]: value
     }
-    console.log(data)
     axios.post(`${API_URL}/api/comment/edit-comment`, data, {
       headers:{
         authorization: `Bearer ${token.refreshToken}`,
         "Content-Type": "application/json"
       }
     })
-    .then((res)=>{
-      console.log(res)
-    })
-    .catch((err)=>{
-      console.log(err)
-    })
+    .then()
+    .catch((err)=> console.log(err))
     .finally(()=>{
       setTimeout(()=>{
       setIsCommentReadOnly(null)
@@ -276,7 +244,6 @@ const TasksID = () =>{
         "Content-Type": "application/json"
       }})
       .then((res)=>{
-        console.log(res.data.data)
         dispatch(team(res.data.data))
       })
       .catch((err)=> console.log(err))
@@ -306,11 +273,9 @@ const TasksID = () =>{
               defaultValue={task.title || "Task Title"} 
               readOnly={isReadOnly} 
               onClick={() => {
-                console.log("Title in focus")
                 setIsReadOnly(false)
               }} 
               onBlur={(e) => {
-                console.log("focus out")
                 handleUpdatedTitle(task._id, "title", e.target.value)
                 setIsReadOnly(true)
               }} 
@@ -360,11 +325,9 @@ const TasksID = () =>{
               rows={10} 
               readOnly={isReadOnly} 
               onClick={() => {
-                console.log("in focus")
                 setIsReadOnly(false)
               }} 
               onBlur={(e) => {
-                console.log("focus out")
                 handleUpdatedDescription(task._id, "description", e.target.value)
                 setIsReadOnly(true)
               }} 
@@ -383,11 +346,9 @@ const TasksID = () =>{
               rows={5} 
               readOnly={isReadOnly} 
               onClick={(e) => {
-                console.log("in foucs")
                 setIsReadOnly(false)
               }} 
               onBlur={(e) => {
-                console.log("out focus")
                 setIsReadOnly(true)
                 handleUpdatedResources(task._id, "resources", e.target.value)
               }} 

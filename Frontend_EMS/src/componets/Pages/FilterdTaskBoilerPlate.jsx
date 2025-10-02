@@ -14,7 +14,6 @@ const FilteredTaskBoilerPlate = ( {data} ) =>{
   const handlePriorityChange = (taskID, field, value) => {
     
     const data = {taskID, [field]: value}
-    console.log(data)
 
     axios.post(`${API_URL}/api/task/update-priority`, data, {
       headers: {
@@ -22,7 +21,6 @@ const FilteredTaskBoilerPlate = ( {data} ) =>{
         "Content-type": "application/json"
     }})
     .then((res)=>{
-      console.log(res)
     })
     .catch((err)=> console.log(err))
   }
@@ -30,71 +28,58 @@ const FilteredTaskBoilerPlate = ( {data} ) =>{
   const handleCategoryChange = (taskID, field, value) => {
     
     const data = {taskID, [field]: value}
-    console.log(data)
 
     axios.post(`${API_URL}/api/task/update-category`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
     }})
-    .then((res)=>{
-      console.log(res)
-    })
+    .then((res)=>{})
     .catch((err)=> console.log(err))
   }
 
   const handleStatusChange = (taskID, field, value) => {
     
     const data = {taskID, [field]: value}
-    console.log(data)
 
     axios.post(`${API_URL}/api/task/update-status`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
     }})
-    .then((res)=>{
-      console.log(res)
-    })
+    .then((res)=>{})
     .catch((err)=> console.log(err))
   }
 
   const handleOwnerChange = (taskID, field, value) => {
     
     const data = {taskID, [field]: value}
-    console.log(data)
 
     axios.post(`${API_URL}/api/task/update-owner`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
     }})
-    .then((res)=>{
-      console.log(res)
-    })
+    .then((res)=>{})
     .catch((err)=> console.log(err))
   }
 
   const handleAssigneeChange = (taskID, field, value) => {
     
     const data = {taskID, [field]: value}
-    console.log(data)
 
     axios.post(`${API_URL}/api/task/update-assignee`, data, {
       headers: {
         authorization: `Bearer ${token.refreshToken}`,
         "Content-type": "application/json"
     }})
-    .then((res)=>{
-      console.log(res)
-    })
+    .then((res)=>{})
     .catch((err)=> console.log(err))
   }
 
   const handleUpdatedTitle = (taskID, field, value) => {
 
     const data = {taskID, [field]: value}
-    console.log(data)
 
     axios.post(`${API_URL}/api/task/update-title`, data, {
       headers:{
@@ -102,14 +87,13 @@ const FilteredTaskBoilerPlate = ( {data} ) =>{
         "Content-Type": `application/json`
       }
     })
-    .then((res) => console.log(res))
+    .then()
     .catch((err)=> console.log(err))
   } 
   
   const handleUpdatedDescription = (taskID, field, value) => {
     
     const data = {taskID, [field]: value}
-    console.log(data)
     
     axios.post(`${API_URL}/api/task/update-description`, data, {
       headers:{
@@ -117,14 +101,13 @@ const FilteredTaskBoilerPlate = ( {data} ) =>{
         "Content-Type": "application/json"
       }
     })
-    .then(res => console.log(res))
+    .then(res => {})
     .catch(err => console.log(err))
   } 
   
   const handleUpdatedResources = (taskID, field, value) => {
 
     const data = {taskID, [field]: value}
-    console.log(data)
 
     axios.post(`${API_URL}/api/task/update-resources`, data, {
       headers: {
@@ -132,7 +115,7 @@ const FilteredTaskBoilerPlate = ( {data} ) =>{
         "Content-Type": "application/json"
       }
     })
-    .then((res) => console.log(res))
+    .then()
     .catch((err)=>console.log(err))
     
   }

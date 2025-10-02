@@ -12,7 +12,6 @@ export const verifyjwt =  asyncHandler( async (req, res, next)=>{
     if (!token1){
       throw new ApiError(402, "Unable to excrate token from headers.")
     }
-    console.log("logout",token1)
 
     let decodedToken = "";
 
@@ -33,7 +32,6 @@ export const verifyjwt =  asyncHandler( async (req, res, next)=>{
     }
 
     req.user = user
-    console.log("User Verified")
     next()
 
   } catch (error) {

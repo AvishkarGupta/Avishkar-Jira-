@@ -8,8 +8,6 @@ import ApiResponse from "../utils/ApiResponse.js";
 const searchData = asyncHandler( async(req, res) => {
 
   const {query} = req.params
-
-  console.log(query )
   const userData = await User.find({Name: {$regex: query, $options: "i" } })
   const taskData = await Task.find({title: {$regex: query, $options: "i" } })
 

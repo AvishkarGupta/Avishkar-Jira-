@@ -34,7 +34,6 @@ const FilterTasksById = ( ) => {
       "Content-Type": "application/json"
     }})
     .then( (res) => {
-      console.log(res.data.data)
       setData(res.data.data)
     })
     .catch( (err) => console.log(err) )

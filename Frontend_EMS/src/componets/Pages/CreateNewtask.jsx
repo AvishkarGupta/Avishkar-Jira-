@@ -14,7 +14,6 @@ const CreateNewtask = () =>{
   
   const token = useSelector(state => state.login.data)
   const membersName = useSelector(state => state.teamProfile)
-  console.log(membersName.data)
   
   const [created, setCreated] = useState("")
   const [error, setError] = useState("")
@@ -40,8 +39,6 @@ const CreateNewtask = () =>{
     const priority = priorityValue.current.value
     const dueDate = dueDateValue.current.value
     const assignee = assigneeValue.current.value 
-    console.log(
-        priority)
 
     axios({
       method:"post", 
@@ -62,7 +59,6 @@ const CreateNewtask = () =>{
     }
     })
     .then((res) => {
-      console.log(res.data.message)
       setCreated(res.data.message)
       setTimeout(()=>{
         navigate("/home")
@@ -82,7 +78,6 @@ const CreateNewtask = () =>{
       authorization: `Bearer ${token.refreshToken}`
     }})
     .then((res)=>{
-      console.log(res)
       dispatch(team(res.data.data))
     })
     .catch((err)=>{console.log(err)})

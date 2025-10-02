@@ -49,13 +49,11 @@ const GetProfileById = () => {
   }
 
   const getTeam = () =>{
-    console.log("Api called for get team")
       axios.get(`${API_URL}/api/users/all-users`, {headers:{
         authorization: `Bearer ${token}`,
         "Content-Type": "application/json"
       }})
       .then((res) => {
-        console.log(res.data.data.filter((profile)=> profile._id == id))
         setData(res.data.data.filter((profile)=> profile._id == id))
         setTeam(res.data.data)
       })

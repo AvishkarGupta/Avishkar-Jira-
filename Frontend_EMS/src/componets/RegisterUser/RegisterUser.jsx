@@ -45,15 +45,10 @@ const RegisterUser = ()=>{
       let role = roleRef.current.value
 
       if ([emp, fn, ln, mail, pw, dob, doj, role].some((field)=> field === "" || undefined)){
-        console.log([emp, fn, ln, mail, pw, dob, doj, role])
         setDb_Response("All fileds are required")
       }else{
-        console.log([emp, fn, ln, mail, pw, dob, doj, role])
         const res = await axios.post(`${API_URL}/users/register`, data);
-        
-        console.log("User registered:", res.data.message);
         setDb_Response(res.data.message)
-        
         empIdRef.current.value = ""
         firstNameRef.current.value = ""
         emailRef.current.value = ""
@@ -64,7 +59,7 @@ const RegisterUser = ()=>{
       }
 
     } catch (error) {
-      console.error("Error registering user:", error.response?.data || error.message);
+      console.error("Error while registering new user:", error.response?.data || error.message);
     }
   };
 

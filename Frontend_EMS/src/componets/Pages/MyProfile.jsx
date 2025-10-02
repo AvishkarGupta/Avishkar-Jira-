@@ -31,7 +31,6 @@ const MyProfile = () => {
         "Content-Type": "application/json"
       }})
       .then((res) => {
-        console.log(res.data.data)
         setAssignedTask(res.data.data)
       })
       .catch(err => console.log(err))
@@ -44,7 +43,6 @@ const MyProfile = () => {
         "Content-Type": "application/json"
       }})
       .then((res) => {
-        console.log(res.data.data)
         setCreatedTask(res.data.data)
       })
       .catch(err => console.log(err))
@@ -52,7 +50,6 @@ const MyProfile = () => {
   }
 
   const getTeam = () =>{
-      console.log("Api called for get team from myprofile")
       axios.get(`${API_URL}/api/users/all-users`, {headers:{
         authorization: `Bearer ${data.refreshToken}`,
         "Content-Type": "application/json"
@@ -80,7 +77,6 @@ const MyProfile = () => {
       }})
       
     .then(res => {
-      console.log(res.data.data)
       dispatch(loginUser(res.data.data))
     })
     .catch(err => console.log(err))

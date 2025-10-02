@@ -24,8 +24,7 @@ const SaveFilterModel = ({onClose}) =>{
     const newFilter = {
       ...filter,
       name: namee
-    }
-    console.log(newFilter)  
+    } 
   
   axios.post(`${API_URL}/api/filter/save-filter`, newFilter, {headers:
     {
@@ -33,7 +32,7 @@ const SaveFilterModel = ({onClose}) =>{
       "Content-Type": "application/json"
     }
   })
-  .then(res => console.log(res))
+  .then()
   .catch(err => console.log(err))
   .finally(()=>{
     onClose()

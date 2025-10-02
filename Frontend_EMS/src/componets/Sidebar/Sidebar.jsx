@@ -85,13 +85,11 @@ const Sidebar = () => {
   const newSidebarIfUserIsNotAdmin = [...sidebarIfUserIsNotAdmin,  ...filters]
 
   const handleDeleteFilter = (e, filterName) =>{
-    console.log(e.target, filterName)
 
     axios.post(`${API_URL}/api/filter/delete-filter`, {filterName}, {headers:{
       authorization: `Bearer ${token}`
     }})
     .then(res => {
-      console.log(res)
       return setFilters(res.data.data)
     })
     .catch(err => console.log(err))

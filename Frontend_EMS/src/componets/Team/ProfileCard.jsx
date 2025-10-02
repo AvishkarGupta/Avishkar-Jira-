@@ -2,8 +2,6 @@ import { useSelector } from "react-redux";
 
 const ProfileCard = ( {data}) =>{
 
-  // const data = useSelector(state => state.login.data)
-  {console.log(data)}
   return <>
   {data.map( (profile)=>{
     return <div key={profile._id} id="teamProfile" className="flex flex-col gap-3 items-center w-[30%] max-w-[400px] max-h-[500px] py-5 bg-amber-500"> 

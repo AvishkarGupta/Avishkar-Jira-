@@ -39,20 +39,6 @@ const CreateNewUser = ( ) => {
     const dateOfJoining = dateOfJoiningValue.current.value
     const dateOfBirth = dateOfBirthValue.current.value
     const avatar = avatarValue.current.files[0]
-     
-    console.log(
-        Name,
-        empId,
-        firstName,
-        lastName,
-        email,
-        password,
-        dateOfBirth,
-        dateOfJoining,
-        role,
-        reportesTo,
-        avatar
-      )
 
       const formdata = new FormData()
         formdata.append("Name", Name)
@@ -77,7 +63,6 @@ const CreateNewUser = ( ) => {
       }}
     )
     .then((res) => {
-      console.log(res.data.message)
       setCreated(res.data.message)
       setTimeout(()=>{
         navigate("/home")

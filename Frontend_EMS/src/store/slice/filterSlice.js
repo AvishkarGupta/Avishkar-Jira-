@@ -10,12 +10,10 @@ const filterSlice = createSlice({
   initialState,
   reducers:{
     addfilter: (state, action) =>{
-      // console.log(action.payload)
       state.filter = action.payload
 
     },
     clearState: (state, action) =>{
-      // console.log(action.payload)
       state.filter = action.payload
     },
     storeData: (state, action)=>{

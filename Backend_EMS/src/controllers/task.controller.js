@@ -86,7 +86,6 @@ const getAllTask = asyncHandler( async(req, res) => {
 const getFilterdTasks = asyncHandler( async(req, res) => {
 
   const {owner, assignee, priority, category, status} = req.body
-  console.log(owner, assignee, priority, category, status)
   const query = {};
   if (owner && owner !== "NA") query.ownerName = owner;
   if (assignee && assignee !== "NA") query.assigneeName = assignee;

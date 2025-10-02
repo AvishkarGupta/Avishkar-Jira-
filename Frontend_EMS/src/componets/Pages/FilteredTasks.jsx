@@ -34,9 +34,8 @@ const FilterTasks = ( ) => {
   });
 
   const handleFilter = (e) => {
-    console.log(e.target)
+
     const { name, value, id, className } = e.target;
-    console.log(name, value, id, className)
      setFilters((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -46,7 +45,6 @@ const FilterTasks = ( ) => {
   }
 
   const handleClear = () => {
-    console.log("Handle clear")
     setFilters({
     owner: "NA",
     assignee: "NA",
