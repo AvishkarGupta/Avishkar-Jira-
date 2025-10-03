@@ -8,5 +8,12 @@ export default defineConfig({
     proxy:{
     "/api" : "http://localhost:8000"}
   },
-  plugins: [react(), tailwindcss()],
+  plugins: [react(), tailwindcss(), viteStaticCopy({
+      targets: [
+        {
+          src: 'public/_redirects',
+          dest: '.'   // copy into dist/ root
+        }
+      ]
+    })],
 })
