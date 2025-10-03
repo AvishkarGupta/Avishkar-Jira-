@@ -32,7 +32,7 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new ApiError(400, "User email and empId already exist in our database")
   }
   
-  const reportingManager = await User.findOne({Name: reportesTo, $options: "i" })
+  const reportingManager = await User.findOne({Name: reportesTo})
   if (!reportingManager) {
     throw new ApiError (400, "Unable to find Reporing Manager in dataBase.")
   }

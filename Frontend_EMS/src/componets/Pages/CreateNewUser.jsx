@@ -110,7 +110,7 @@ const CreateNewUser = ( ) => {
               <input
                 ref={empIdValue} 
                 className="border-b-1 border-gray-400 w-[20rem] outline-none px-2 p-0.4 placeholder-blue-300 " 
-                type="text" 
+                type="number" 
                 name="empId" 
                 placeholder="####" 
                 id="empId"
