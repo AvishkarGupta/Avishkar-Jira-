@@ -90,13 +90,13 @@ const MyProfile = () => {
     <Sidebar/>
     <div className="mt-17 w-full h-[40rem]"> 
       <Link onClick={goBack} className="relative top-[1rem] flex"><IoIosArrowBack /> <span className="relative bottom-1">Back</span></Link>
-      <div id="myProfilee" className=" flex gap-10 max-h-[40rem] py-5 justify-center mx-2 border border-b-black border-white"> 
-        <div onClick={()=> setEditModel(true)} className="pt-3">
-          <img className="w-[5rem] h-[5rem] rounded-[50%] border-blue-300 border-2" src={data.avatar ? data.avatar : "../../assests/Avishkar_passportt.jpg"} alt="Emp Avatar" />
+      <div id="myProfilee" className=" flex flex-wrap gap-10 max-h-[40rem] py-5 justify-center mx-2 border border-b-black border-white"> 
+        <div onClick={()=> setEditModel(true)} className="">
+          <img className="min-w-[5rem] h-[5rem] rounded-[50%] border-blue-300 border-2" src={data.avatar ? data.avatar : "../../assests/Avishkar_passportt.jpg"} alt="Emp Avatar" />
         </div>
-        <div className="">
+        <div className="flex flex-col items-center">
           <textarea 
-            className="text-3xl my-4 font-bold text-[#071330] resize-none px-1"
+            className="text-3xl my-4 font-bold text-[#071330] resize-none px-1 self-center"
             onBlur={(e) => handleNameEdits(e)}
             onFocus={() => setReadOnly(false)}
             readOnly={readOnly}

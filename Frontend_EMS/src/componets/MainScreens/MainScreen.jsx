@@ -126,7 +126,7 @@ const MainScreen = () => {
       <div className="flex w-full justify-between gap-10 flex-wrap">
         <div className="flex flex-col items-center  min-w-[30rem] max-w-[30rem] max-h-[30rem] rounded border-yellow-300 border-2">
         <div className="bg-yellow-300 text-white font-semibold px-2 py-1 w-full">
-          Created Tickets
+          Owner
         </div>
         <div className="flex flex-col gap-1 p-2 w-full">
           {createdTasks.length !== 0 ? createdTasks.map((task)=>{
